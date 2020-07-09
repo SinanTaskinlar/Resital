@@ -10,5 +10,6 @@ namespace Resital.Model
         public string Name { get; set; }
         public City StartLocation { get; set; }
         public City EndLocation { get; set; }
+        //TEST
     }
 }
