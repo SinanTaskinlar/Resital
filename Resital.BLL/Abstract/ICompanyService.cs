@@ -11,7 +11,7 @@ namespace Resital.BLL.Abstract
         List<CompanyDTO> getAllCompanies();
         CompanyDTO getCompanyRoute(int companyId);
         List<CompanyDTO> getCompanyName(string companyName);
-        CompanyDTO addCompany(CompanyDTO company);
+        CompanyDTO addCompany(CompanyDTO companyDto);
         CompanyDTO updateCompany(CompanyDTO company);
         bool deleteCompany(int companyId);
     }

@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Resital.Model
 {
-    public class Company : Entity<Guid>
+    public class Company : Entity<int>
     {
         public string Name { get; set; }
         public string Address { get; set; }
         public string Note { get; set; }
-        public int CompnayTypeId { get; set; }
+        public int CompanyTypeId { get; set; }
         public virtual CompanyType CompanyType { get; set; }
         public virtual ICollection<Room> Rooms { get; set; }
         public virtual ICollection<Vehicle> Vehicles { get; set; }

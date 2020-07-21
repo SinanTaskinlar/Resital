@@ -12,23 +12,23 @@ namespace Resital.BLL.Services
 {
     public class CityService : ICityService
     {
-        private readonly IUnitOfWork uow;
-        private readonly IMapper mapper;
+        private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
 
-        public CityService(IUnitOfWork _uow, IMapper _mapper)
+        public CityService(IUnitOfWork uow, IMapper mapper)
         {
-            uow = _uow;
-            mapper = _mapper;
+            this._uow = uow;
+            this._mapper = mapper;
         }
 
         public CityDTO addCity(CityDTO cityDto)
         {
-            if (!uow.GetRepository<City>().GetAll().Any(z => z.Name == cityDto.Name))
+            if (!_uow.GetRepository<City>().GetAll().Any(z => z.Name == cityDto.Name))
             {
-                City City = mapper.Map<City>(cityDto);
-                uow.GetRepository<City>().Add(City);
-                uow.SaveChanges();
-                return mapper.Map<CityDTO>(City);
+                City city = _mapper.Map<City>(cityDto);
+                _uow.GetRepository<City>().Add(city);
+                _uow.SaveChanges();
+                return _mapper.Map<CityDTO>(city);
             }
             else
             {
@@ -40,9 +40,9 @@ namespace Resital.BLL.Services
         {
             try
             {
-                var city = uow.GetRepository<City>().Get(z => z.Id == cityId);
-                uow.GetRepository<City>().Delete(city);
-                uow.SaveChanges();
+                var city = _uow.GetRepository<City>().Get(z => z.Id == cityId);
+                _uow.GetRepository<City>().Delete(city);
+                _uow.SaveChanges();
                 return true;
                 //TODO: https://www.uzmankirala.com/projeler/goster/37840/web_sayfamiza_uyelik_kayit_ve_davet_sistemi SMS 
             }
@@ -54,29 +54,29 @@ namespace Resital.BLL.Services
 
         public List<CityDTO> getAllCities()
         {
-            var articleList = uow.GetRepository<City>().GetAll().ToList();
-            return mapper.Map<List<CityDTO>>(articleList);
+            var articleList = _uow.GetRepository<City>().GetAll().ToList();
+            return _mapper.Map<List<CityDTO>>(articleList);
         }
 
         public CityDTO getCity(int cityId)
         {
-            var city = uow.GetRepository<City>().Get(z => z.Id == cityId);
-            return mapper.Map<CityDTO>(city);
+            var city = _uow.GetRepository<City>().Get(z => z.Id == cityId);
+            return _mapper.Map<CityDTO>(city);
         }
 
         public List<CityDTO> getCityName(string cityName)
         {
-            var cityList = uow.GetRepository<City>().Get(z => z.Name.Contains(cityName), null).ToList();
-            return mapper.Map<List<CityDTO>>(cityList);
+            var cityList = _uow.GetRepository<City>().Get(z => z.Name.Contains(cityName), null).ToList();
+            return _mapper.Map<List<CityDTO>>(cityList);
         }
 
         public CityDTO updateCity(CityDTO city)
         {
-            var upCity = uow.GetRepository<City>().Get(z => z.Id == city.Id);
-            upCity = mapper.Map<City>(city);
-            uow.GetRepository<City>().Update(upCity);
-            uow.SaveChanges();
-            return mapper.Map<CityDTO>(upCity);
+            var upCity = _uow.GetRepository<City>().Get(z => z.Id == city.Id);
+            upCity = _mapper.Map<City>(city);
+            _uow.GetRepository<City>().Update(upCity);
+            _uow.SaveChanges();
+            return _mapper.Map<CityDTO>(upCity);
         }
     }
 }
