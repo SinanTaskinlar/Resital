@@ -1,12 +1,12 @@
-﻿using Resital.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Resital.Model
+namespace Resital.DTO
 {
-    public class RoomType : Entity<int>
+    public class VehicleTypeDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

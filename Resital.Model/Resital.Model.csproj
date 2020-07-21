@@ -12,4 +12,8 @@
     <ProjectReference Include="..\Resital.Core\Resital.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
 </Project>

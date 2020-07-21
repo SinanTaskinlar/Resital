@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Resital.Model
 {
-    public class CompanyRegion : Entity<Guid>
+    public class CompanyRegion : Entity<int>
     {
         public Company Company { get; set; }
         public Region Region { get; set; }

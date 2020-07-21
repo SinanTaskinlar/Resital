@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Resital.Core.Entities
+namespace Resital.Core.Services
 {
-    public abstract class EntityBase
+    public interface IServiceBase
     {
     }
 }
