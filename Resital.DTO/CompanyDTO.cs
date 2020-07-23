@@ -9,7 +9,7 @@ namespace Resital.DTO
 {
     public class CompanyDTO
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string Note { get; set; }

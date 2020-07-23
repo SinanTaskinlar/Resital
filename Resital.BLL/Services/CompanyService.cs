@@ -20,7 +20,6 @@ namespace Resital.BLL.Services
             this._mapper = mapper;
         }
 
-
         public List<CompanyDTO> getAllCompanies()
         {
             return _mapper.Map<List<CompanyDTO>>(_uow.GetRepository<Company>().GetAll().ToList());
@@ -33,7 +32,8 @@ namespace Resital.BLL.Services
 
         public List<CompanyDTO> getCompanyName(string companyName)
         {
-            throw new NotImplementedException();
+            var cityList = _uow.GetRepository<Company>().Get(z => z.Name.Contains(companyName), null).ToList();
+            return _mapper.Map<List<CompanyDTO>>(cityList);
         }
 
         public CompanyDTO addCompany(CompanyDTO companyDto)
@@ -49,17 +49,31 @@ namespace Resital.BLL.Services
             {
                 return null;
             }
-
         }
 
         public CompanyDTO updateCompany(CompanyDTO company)
         {
-            throw new NotImplementedException();
+            var upCompany = _uow.GetRepository<Company>().Get(z => z.Id == company.Id);
+            upCompany = _mapper.Map<Company>(company);
+            _uow.GetRepository<Company>().Update(upCompany);
+            _uow.SaveChanges();
+            return _mapper.Map<CompanyDTO>(upCompany);
         }
 
         public bool deleteCompany(int companyId)
         {
-            throw new NotImplementedException();
+            if (companyId <= 0) throw new ArgumentOutOfRangeException(nameof(companyId));
+            try
+            {
+                var Company = _uow.GetRepository<Company>().Get(z => z.Id == companyId);
+                _uow.GetRepository<Company>().Delete(Company);
+                _uow.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

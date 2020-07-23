@@ -8,7 +8,7 @@ namespace Resital.DTO
 {
     public class RegionDTO
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

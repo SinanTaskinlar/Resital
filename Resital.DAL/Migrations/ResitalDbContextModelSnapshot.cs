@@ -32,21 +32,136 @@ namespace Resital.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "İstanbul"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Ankara"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "İzmir"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Antalya"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Adana"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Eskişehir"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Afyonkarahisar "
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Artvin"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Balıkesir"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Bursa"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Çanakkale"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Diyarbakır"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Edirne"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Kastamonu"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Kütahya"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Muğla"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "Nevşehir"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "Sinop"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "Sivas"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "Şanlıurfa"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "Tokat"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Name = "Trabzon"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Name = "Yozgat"
+                        });
                 });
 
             modelBuilder.Entity("Resital.Model.Company", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CompanyTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CompnayTypeId")
+                    b.Property<int>("CompanyTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -64,15 +179,16 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.CompanyRegion", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid?>("CompanyId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("RegionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("RegionId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -85,15 +201,16 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.CompanyRoute", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid?>("CompanyId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("RouteId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("RouteId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -117,13 +234,46 @@ namespace Resital.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CompanyTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            TypeName = "Hotel Company"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            TypeName = "Tour Company "
+                        },
+                        new
+                        {
+                            Id = 3,
+                            TypeName = "AirPlane Company "
+                        },
+                        new
+                        {
+                            Id = 4,
+                            TypeName = "Transfer Company "
+                        },
+                        new
+                        {
+                            Id = 5,
+                            TypeName = "RentACar Company "
+                        },
+                        new
+                        {
+                            Id = 6,
+                            TypeName = "Ship Company "
+                        });
                 });
 
             modelBuilder.Entity("Resital.Model.Guide", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
@@ -141,9 +291,10 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.Region", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -151,16 +302,59 @@ namespace Resital.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Regions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Akdeniz"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Doğu Anadolu"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Ege"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Güneydoğu Anadolu"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "İç Anadolu"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Marmara"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Karadeniz"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Yurtdışı"
+                        });
                 });
 
             modelBuilder.Entity("Resital.Model.Room", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid?>("HotelId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("HotelId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("RoomLocationId")
                         .HasColumnType("int");
@@ -192,6 +386,23 @@ namespace Resital.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RoomLocations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "DNZ"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "GNL "
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "PRK "
+                        });
                 });
 
             modelBuilder.Entity("Resital.Model.RoomType", b =>
@@ -207,13 +418,41 @@ namespace Resital.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RoomTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "SGL"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "DBL"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "TRP"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "DBL+1"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "TRP+1"
+                        });
                 });
 
             modelBuilder.Entity("Resital.Model.Route", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("EndLocationId")
                         .HasColumnType("int");
@@ -235,12 +474,13 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.Vehicle", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid?>("CompanyId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -270,13 +510,37 @@ namespace Resital.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("VehicleTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Araba"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Uçak"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Gemi"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Otobüs"
+                        });
                 });
 
             modelBuilder.Entity("Resital.Model.Company", b =>
                 {
                     b.HasOne("Resital.Model.CompanyType", "CompanyType")
                         .WithMany()
-                        .HasForeignKey("CompanyTypeId");
+                        .HasForeignKey("CompanyTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Resital.Model.CompanyRegion", b =>

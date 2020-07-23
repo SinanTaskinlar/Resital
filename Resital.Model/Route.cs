@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Resital.Model
 {
-    public class Route : Entity<Guid>
+    public class Route : Entity<int>
     {
         public string Name { get; set; }
         public City StartLocation { get; set; }

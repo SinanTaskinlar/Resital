@@ -3,7 +3,6 @@ using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,68 +10,59 @@ namespace Resital.BLL.Services
 {
     public class GuideService : IGuideService
     {
-        private readonly IUnitOfWork uow;
-        private readonly IMapper mapper;
+        private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
 
-        public GuideService(IUnitOfWork _uow, IMapper _mapper)
+        public GuideService(IUnitOfWork uow, IMapper mapper)
         {
-            uow = _uow;
-            mapper = _mapper;
+            this._uow = uow;
+            this._mapper = mapper;
         }
 
-        public GuideDTO addGuide(GuideDTO guide)
+        public GuideDTO addGuide(GuideDTO guideDto)
         {
-            if (!uow.GetRepository<Guide>().GetAll().Any(z => z.Name == guide.Name))
+            if (!_uow.GetRepository<Guide>().GetAll().Any(z => z.Name == guideDto.Name))
             {
-                Guide Guide = mapper.Map<Guide>(guide);
-                uow.GetRepository<Guide>().Add(Guide);//todo: int guid
-                uow.SaveChanges();
-                return mapper.Map<GuideDTO>(Guide);
+                var guide = _mapper.Map<Guide>(guideDto);
+                _uow.GetRepository<Guide>().Add(guide);
+                _uow.SaveChanges();
+                return _mapper.Map<GuideDTO>(guide);
             }
             else
-            {
                 return null;
-            }
         }
 
         public bool deleteGuide(int guideId)
         {
-            try
-            {
-                uow.GetRepository<Guide>().Delete(uow.GetRepository<Guide>().Get(z => z.Id == guideId));
-                uow.SaveChanges();
+                _uow.GetRepository<Guide>().Delete(_uow.GetRepository<Guide>().Get(z => z.Id == guideId));
+                _uow.SaveChanges();
                 return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         public List<GuideDTO> getAllGuides()
         {
-            return mapper.Map<List<GuideDTO>>(uow.GetRepository<Guide>().GetAll().ToList());
+            return _mapper.Map<List<GuideDTO>>(_uow.GetRepository<Guide>().GetAll().ToList());
         }
 
         public List<GuideDTO> getGuideName(string guideName)
         {
-            var cityList = uow.GetRepository<Guide>().Get(z => z.Name.Contains(guideName), null).ToList();
-            return mapper.Map<List<GuideDTO>>(cityList);
+            var cityList = _uow.GetRepository<Guide>().Get(z => z.Name.Contains(guideName), null).ToList();
+            return _mapper.Map<List<GuideDTO>>(cityList);
         }
 
         public GuideDTO getGuide(int guideId)
         {
-            var city = uow.GetRepository<Guide>().Get(z => z.Id == guideId);
-            return mapper.Map<GuideDTO>(city);
+            var city = _uow.GetRepository<Guide>().Get(z => z.Id == guideId);
+            return _mapper.Map<GuideDTO>(city);
         }
 
         public GuideDTO updateGuide(GuideDTO guide)
         {
-            var upCity = uow.GetRepository<Guide>().Get(z => z.Id == guide.Id);
-            upCity = mapper.Map<Guide>(guide);
-            uow.GetRepository<Guide>().Update(upCity);
-            uow.SaveChanges();
-            return mapper.Map<GuideDTO>(upCity);
+            var upCity = _uow.GetRepository<Guide>().Get(z => z.Id == guide.Id);
+            upCity = _mapper.Map<Guide>(guide);
+            _uow.GetRepository<Guide>().Update(upCity);
+            _uow.SaveChanges();
+            return _mapper.Map<GuideDTO>(upCity);
         }
     }
 }

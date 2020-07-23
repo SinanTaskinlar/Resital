@@ -1,12 +1,11 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Resital.BLL.Services
 {

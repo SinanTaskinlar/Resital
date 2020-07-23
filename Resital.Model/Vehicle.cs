@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Resital.Model
 {
-    public class Vehicle : Entity<Guid>
+    public class Vehicle : Entity<int>
     {
         public string Name { get; set; }
         public VehicleType VehicleType { get; set; }

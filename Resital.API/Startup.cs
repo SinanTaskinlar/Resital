@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Resital.BLL.Abstract;
 using Resital.BLL.Services;
 using Resital.Core.Data.UnitOfWork;
@@ -39,15 +32,13 @@ namespace Resital.API
 
             /*TODO: Log
              https://www.tutorialsteacher.com/core/aspnet-core-logging
-
-             
              */
-            var mappingConfig = new MapperConfiguration(mc => mc.AddProfile(new MapperProfile()));
 
-            IMapper mapper = mappingConfig.CreateMapper();
+            var mappingConfig = new MapperConfiguration(mc => mc.AddProfile(new MapperProfile()));
+            var mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
         }
-
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

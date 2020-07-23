@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Resital.Model
 {
-    public class Room : Entity<Guid>
+    public class Room : Entity<int>
     {
         public Company Hotel  { get; set; }
         public RoomLocation RoomLocation { get; set; }

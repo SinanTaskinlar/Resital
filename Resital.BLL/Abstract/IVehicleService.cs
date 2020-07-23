@@ -9,10 +9,10 @@ namespace Resital.BLL.Abstract
     public interface IVehicleService : IServiceBase
     {
         List<VehicleDTO> getAllVehicles();
-        VehicleDTO getVehicle(int VehicleId);
-        List<VehicleDTO> getVehicleName(string VehicleName);
-        VehicleDTO addVehicle(VehicleDTO Vehicle);
-        VehicleDTO updateVehicle(VehicleDTO Vehicle);
-        bool deleteVehicle(int VehicleId);
+        VehicleDTO getVehicle(int vehicleId);
+        List<VehicleDTO> getVehicleName(string vehicleName);
+        VehicleDTO addVehicle(VehicleDTO vehicle);
+        VehicleDTO updateVehicle(VehicleDTO vehicle);
+        bool deleteVehicle(int vehicleId);
     }
 }

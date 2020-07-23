@@ -10,9 +10,8 @@ namespace Resital.BLL.Abstract
     {
         List<RoomDTO> getAllRooms();
         RoomDTO getRoom(int roomId);
-        List<RoomDTO> getRoomName(string roomName);
         RoomDTO addRoom(RoomDTO room);
-        RoomTypeDTO updateRoomType(RoomDTO room);
+        RoomDTO updateRoomType(RoomDTO room);
         bool deleteRoom(int roomId);
     }
 }
