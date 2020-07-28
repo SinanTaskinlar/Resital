@@ -11,6 +11,8 @@ namespace Resital.Mapping
             //entitytodto
             CreateMap<City, CityDTO>();
             CreateMap<Company, CompanyDTO>();
+            CreateMap<CompanyDTO, Company>();
+
             CreateMap<CompanyRegion, CompanyRegionDTO>();
             CreateMap<CompanyRoute, CompanyRouteDTO>();
             CreateMap<CompanyType, CompanyTypeDTO>();
@@ -25,7 +27,7 @@ namespace Resital.Mapping
 
             //dtotoentity
             CreateMap<CityDTO, City>();
-            CreateMap<CompanyDTO, CompanyDTO>();
+            
             CreateMap<CompanyRegionDTO, CompanyRegion>();
             CreateMap<CompanyRouteDTO, CompanyRoute>();
             CreateMap<CompanyTypeDTO, CompanyType>();
@@ -37,9 +39,6 @@ namespace Resital.Mapping
             CreateMap<RouteDTO, Route>();
             CreateMap<VehicleDTO, Vehicle>();
             CreateMap<VehicleTypeDTO, VehicleType>();
-
-            //TODO: services.AddAutoMapper();
-            //https://www.gencayyildiz.com/blog/asp-net-coreda-automapper-kullanimi/
         }
     }
 }

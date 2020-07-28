@@ -9,11 +9,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Resital.Core\Resital.Core.csproj" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\Resital.Core\Resital.Core.csproj" />
   </ItemGroup>
 
 </Project>

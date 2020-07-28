@@ -15,16 +15,18 @@ namespace Resital.DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.5")
+                .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Resital.Model.City", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -36,133 +38,158 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("5fae75e6-4838-4a72-9d34-9fdec247312d"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3282),
                             Name = "İstanbul"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = new Guid("82604518-295f-456b-876e-a0ad535de310"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3579),
                             Name = "Ankara"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = new Guid("4afe0ff4-b424-4f46-a8a4-6b6f678e5daf"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3601),
                             Name = "İzmir"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = new Guid("3e126224-9c72-49a6-953c-99fb75b82288"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3603),
                             Name = "Antalya"
                         },
                         new
                         {
-                            Id = 5,
+                            Id = new Guid("cefa2761-95d9-4928-b21f-ac4fe70f00d1"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3605),
                             Name = "Adana"
                         },
                         new
                         {
-                            Id = 6,
+                            Id = new Guid("377d52dd-5f05-456f-b6d9-9fc2b7f3e86d"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3607),
                             Name = "Eskişehir"
                         },
                         new
                         {
-                            Id = 7,
+                            Id = new Guid("c64b3fd1-4994-493e-94e8-e2010424d0ac"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3609),
                             Name = "Afyonkarahisar "
                         },
                         new
                         {
-                            Id = 8,
+                            Id = new Guid("45e79d3c-4578-4748-924e-b34e127f57c7"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3611),
                             Name = "Artvin"
                         },
                         new
                         {
-                            Id = 9,
+                            Id = new Guid("1f4c7de0-e942-4e2e-8f35-06e2c588ac87"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3613),
                             Name = "Balıkesir"
                         },
                         new
                         {
-                            Id = 10,
+                            Id = new Guid("5e72cc7d-10d6-4e7b-9873-0d7c83b00174"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3615),
                             Name = "Bursa"
                         },
                         new
                         {
-                            Id = 11,
+                            Id = new Guid("d146477d-a9ff-484a-ba3c-5ab65c7af8d7"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3620),
                             Name = "Çanakkale"
                         },
                         new
                         {
-                            Id = 12,
+                            Id = new Guid("dae733b4-eba1-4027-83ab-7d368ef8e6b2"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3622),
                             Name = "Diyarbakır"
                         },
                         new
                         {
-                            Id = 13,
+                            Id = new Guid("ced59c7d-ff37-4781-ad3f-32dc8bd223ff"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3624),
                             Name = "Edirne"
                         },
                         new
                         {
-                            Id = 14,
+                            Id = new Guid("2cda6c0c-b1ff-4615-8ec3-c97fb43dc0e2"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3626),
                             Name = "Kastamonu"
                         },
                         new
                         {
-                            Id = 15,
+                            Id = new Guid("201f8bc2-6139-4ba4-a8e5-3b3f50358d19"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3628),
                             Name = "Kütahya"
                         },
                         new
                         {
-                            Id = 16,
+                            Id = new Guid("1bb7fd30-4716-4911-89c9-dd6ac1f7e107"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3630),
                             Name = "Muğla"
                         },
                         new
                         {
-                            Id = 17,
+                            Id = new Guid("312a6d2a-3e72-487b-af7b-7c2000dd1f76"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3632),
                             Name = "Nevşehir"
                         },
                         new
                         {
-                            Id = 18,
+                            Id = new Guid("88766751-220d-46bb-abd2-bfdc749be070"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3634),
                             Name = "Sinop"
                         },
                         new
                         {
-                            Id = 19,
+                            Id = new Guid("69c1974c-d356-4060-9aaa-1cf6088c72b1"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3638),
                             Name = "Sivas"
                         },
                         new
                         {
-                            Id = 20,
+                            Id = new Guid("a42b4cae-b70d-4ac9-9af1-2238836a02b3"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3640),
                             Name = "Şanlıurfa"
                         },
                         new
                         {
-                            Id = 21,
+                            Id = new Guid("0f11a363-43d1-4528-b128-9a6595f8fc31"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3642),
                             Name = "Tokat"
                         },
                         new
                         {
-                            Id = 22,
+                            Id = new Guid("9c69d89b-8097-4534-b612-9615982b5312"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3644),
                             Name = "Trabzon"
                         },
                         new
                         {
-                            Id = 23,
+                            Id = new Guid("ac680eb8-a86f-4a6e-8b96-f64251a6c0cf"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(3646),
                             Name = "Yozgat"
                         });
                 });
 
             modelBuilder.Entity("Resital.Model.Company", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CompanyTypeId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CompanyTypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -179,16 +206,18 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.CompanyRegion", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("CompanyId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("RegionId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("RegionId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -201,16 +230,18 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.CompanyRoute", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("CompanyId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("RouteId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("RouteId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -223,10 +254,12 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.CompanyType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("TypeName")
                         .HasColumnType("nvarchar(max)");
@@ -238,50 +271,61 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("1cb9623f-9338-43d0-b5dd-1c3d9542aba7"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(2329),
                             TypeName = "Hotel Company"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = new Guid("2fd6a56c-e287-4c03-a86e-aa035277fb9c"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(2631),
                             TypeName = "Tour Company "
                         },
                         new
                         {
-                            Id = 3,
+                            Id = new Guid("c6c3f46e-5686-4fab-9ffe-267fb66fe409"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(2655),
                             TypeName = "AirPlane Company "
                         },
                         new
                         {
-                            Id = 4,
+                            Id = new Guid("ef829760-3861-4d74-96ca-c87a89f68a90"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(2658),
                             TypeName = "Transfer Company "
                         },
                         new
                         {
-                            Id = 5,
+                            Id = new Guid("5eb5053c-5092-4401-8d7b-af5ba76b840c"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(2660),
                             TypeName = "RentACar Company "
                         },
                         new
                         {
-                            Id = 6,
+                            Id = new Guid("ba26aeaf-cfd2-456c-9c34-7c957d099f39"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(2662),
                             TypeName = "Ship Company "
                         });
                 });
 
             modelBuilder.Entity("Resital.Model.Guide", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Language")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -291,10 +335,12 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.Region", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -306,65 +352,78 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("a97d68ee-1101-4835-b23c-7313e9098a30"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 791, DateTimeKind.Local).AddTicks(9145),
                             Name = "Akdeniz"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = new Guid("15a8ff2f-e51f-4cec-9664-1f841e6e46d4"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 791, DateTimeKind.Local).AddTicks(9535),
                             Name = "Doğu Anadolu"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = new Guid("0a9583aa-c8d1-4253-b2a6-c24099bb385c"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 791, DateTimeKind.Local).AddTicks(9552),
                             Name = "Ege"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = new Guid("800af8e8-9112-4b22-9c9d-b0826a8d3139"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 791, DateTimeKind.Local).AddTicks(9554),
                             Name = "Güneydoğu Anadolu"
                         },
                         new
                         {
-                            Id = 5,
+                            Id = new Guid("e5cdd054-1a83-4693-85b1-b104ad8dfffa"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 791, DateTimeKind.Local).AddTicks(9557),
                             Name = "İç Anadolu"
                         },
                         new
                         {
-                            Id = 6,
+                            Id = new Guid("cceef3b6-0eac-4912-af27-03784624cfcd"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 791, DateTimeKind.Local).AddTicks(9559),
                             Name = "Marmara"
                         },
                         new
                         {
-                            Id = 7,
+                            Id = new Guid("95251185-b1ed-4e41-b7ea-937e0600bd54"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 791, DateTimeKind.Local).AddTicks(9561),
                             Name = "Karadeniz"
                         },
                         new
                         {
-                            Id = 8,
+                            Id = new Guid("90f01ddd-a0cd-401d-96f5-5924d8825fcb"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 791, DateTimeKind.Local).AddTicks(9563),
                             Name = "Yurtdışı"
                         });
                 });
 
             modelBuilder.Entity("Resital.Model.Room", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("HotelId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("RoomLocationId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int?>("RoomTypeId")
-                        .HasColumnType("int");
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("RoomLocationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoomTypeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HotelId");
+                    b.HasIndex("CompanyId");
 
                     b.HasIndex("RoomLocationId");
 
@@ -375,10 +434,12 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.RoomLocation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -390,27 +451,32 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("3fa7b06a-5088-4c37-b4a5-56f8364fb3e0"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(1350),
                             Name = "DNZ"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = new Guid("bb7f2f52-13e8-47fb-a474-46ecd4b7dbf7"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(1661),
                             Name = "GNL "
                         },
                         new
                         {
-                            Id = 3,
+                            Id = new Guid("450daf59-4f51-453b-b4a4-5e0bac36e614"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(1679),
                             Name = "PRK "
                         });
                 });
 
             modelBuilder.Entity("Resital.Model.RoomType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -422,46 +488,53 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("5926210a-8a2b-4a50-a90e-47f65d4c0ac1"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(309),
                             Name = "SGL"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = new Guid("604f5966-7cbd-47e6-b01e-095013e9c591"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(643),
                             Name = "DBL"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = new Guid("b9f0afd4-1709-485a-bb5a-10e993b80c2c"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(673),
                             Name = "TRP"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = new Guid("f029c0d7-ca0c-45f0-90c6-a195220dfbbb"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(675),
                             Name = "DBL+1"
                         },
                         new
                         {
-                            Id = 5,
+                            Id = new Guid("39f72624-8839-4d34-ae56-e8d6d6d58152"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 792, DateTimeKind.Local).AddTicks(678),
                             Name = "TRP+1"
                         });
                 });
 
             modelBuilder.Entity("Resital.Model.Route", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("EndLocationId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("EndLocationId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("StartLocationId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("StartLocationId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -474,19 +547,21 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.Vehicle", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("CompanyId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("VehicleTypeId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("VehicleTypeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -499,10 +574,12 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.VehicleType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -514,22 +591,26 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("137025cf-ade4-4e5b-8d70-d7c55b88fe74"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 789, DateTimeKind.Local).AddTicks(7340),
                             Name = "Araba"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = new Guid("1256d25e-861e-4364-ba1c-6f7194d88a83"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 790, DateTimeKind.Local).AddTicks(7815),
                             Name = "Uçak"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = new Guid("5b109634-103e-40a8-996a-e453a172399a"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 790, DateTimeKind.Local).AddTicks(7873),
                             Name = "Gemi"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = new Guid("4c45d818-fb55-4a8f-b66c-064856626da1"),
+                            CreatedAt = new DateTime(2020, 7, 27, 14, 20, 6, 790, DateTimeKind.Local).AddTicks(7912),
                             Name = "Otobüs"
                         });
                 });
@@ -567,17 +648,23 @@ namespace Resital.DAL.Migrations
 
             modelBuilder.Entity("Resital.Model.Room", b =>
                 {
-                    b.HasOne("Resital.Model.Company", "Hotel")
+                    b.HasOne("Resital.Model.Company", "Company")
                         .WithMany("Rooms")
-                        .HasForeignKey("HotelId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Resital.Model.RoomLocation", "RoomLocation")
                         .WithMany()
-                        .HasForeignKey("RoomLocationId");
+                        .HasForeignKey("RoomLocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Resital.Model.RoomType", "RoomType")
                         .WithMany()
-                        .HasForeignKey("RoomTypeId");
+                        .HasForeignKey("RoomTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Resital.Model.Route", b =>

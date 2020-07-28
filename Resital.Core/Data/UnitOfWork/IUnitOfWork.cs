@@ -6,7 +6,8 @@ namespace Resital.Core.Data.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRepository<T> GetRepository<T>() where T : Entity<int>;
+        IRepository<T> GetRepository<T>() where T : Entity<Guid>;
+
         int SaveChanges();
     }
 }

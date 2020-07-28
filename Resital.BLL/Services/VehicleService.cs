@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Resital.BLL.Services
 {
@@ -19,22 +19,16 @@ namespace Resital.BLL.Services
             this._uow = uow;
             this._mapper = mapper;
         }
-        
+
         public List<VehicleDTO> getAllVehicles()
         {
             return _mapper.Map<List<VehicleDTO>>(_uow.GetRepository<Vehicle>().GetAll().ToList());
         }
 
-        public VehicleDTO getVehicle(int vehicleId)
+        public VehicleDTO getVehicle(Guid vehicleId)
         {
-            var route = _uow.GetRepository<Vehicle>().Get(z => z.Id == vehicleId);
+            var route = _uow.GetRepository<Vehicle>().GetById(vehicleId);
             return _mapper.Map<VehicleDTO>(route);
-        }
-
-        public List<VehicleDTO> getVehicleName(string vehicleName)
-        {
-            var cityList = _uow.GetRepository<Vehicle>().Get(z => z.Name.Contains(vehicleName), null).ToList();
-            return _mapper.Map<List<VehicleDTO>>(cityList);
         }
 
         public VehicleDTO addVehicle(VehicleDTO vehicle)
@@ -42,7 +36,7 @@ namespace Resital.BLL.Services
             if (!_uow.GetRepository<Vehicle>().GetAll().Any(z => z.Name == vehicle.Name))
             {
                 var company = _mapper.Map<Vehicle>(vehicle);
-                _uow.GetRepository<Vehicle>().Add(company);
+                _uow.GetRepository<Vehicle>().Insert(company);
                 _uow.SaveChanges();
                 return _mapper.Map<VehicleDTO>(company);
             }
@@ -54,20 +48,19 @@ namespace Resital.BLL.Services
 
         public VehicleDTO updateVehicle(VehicleDTO vehicle)
         {
-            var upCompanyRegion = _uow.GetRepository<Vehicle>().Get(z => z.Id == vehicle.Id);
+            var upCompanyRegion = _uow.GetRepository<Vehicle>().GetById(vehicle.Id);
             upCompanyRegion = _mapper.Map<Vehicle>(vehicle);
             _uow.GetRepository<Vehicle>().Update(upCompanyRegion);
             _uow.SaveChanges();
             return _mapper.Map<VehicleDTO>(upCompanyRegion);
         }
 
-        public bool deleteVehicle(int vehicleId)
+        public bool deleteVehicle(Guid vehicleId)
         {
-            if (vehicleId <= 0) throw new ArgumentOutOfRangeException(nameof(vehicleId));
             try
             {
-                var Company = _uow.GetRepository<Vehicle>().Get(z => z.Id == vehicleId);
-                _uow.GetRepository<Vehicle>().Delete(Company);
+                var Company = _uow.GetRepository<Vehicle>().GetById(vehicleId);
+                _uow.GetRepository<Vehicle>().Delete(Company.Id);
                 _uow.SaveChanges();
                 return true;
             }

@@ -1,39 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Resital.BLL.Services
 {
     public class CompanyRouteService : ICompanyRouteService
     {
-        private readonly IUnitOfWork uow;
-        private readonly IMapper mapper;
+        private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
 
-        public CompanyRouteService(IUnitOfWork _uow, IMapper _mapper)
+        public CompanyRouteService(IUnitOfWork uow, IMapper mapper)
         {
-            uow = _uow;
-            mapper = _mapper;
+            this._uow = uow;
+            this._mapper = mapper;
         }
 
         public CompanyRouteDTO addCompanyRoute(CompanyRouteDTO companyRoute)
         {
-                CompanyRoute Guide = mapper.Map<CompanyRoute>(companyRoute);
-                uow.GetRepository<CompanyRoute>().Add(Guide);//todo: int guid
-                uow.SaveChanges();
-                return mapper.Map<CompanyRouteDTO>(Guide);
+            CompanyRoute Guide = _mapper.Map<CompanyRoute>(companyRoute);
+            _uow.GetRepository<CompanyRoute>().Insert(Guide);
+            _uow.SaveChanges();
+            return _mapper.Map<CompanyRouteDTO>(Guide);
         }
 
-        public bool deleteCompanyRoute(int companyRouteId)
+        public bool deleteCompanyRoute(Guid companyRouteId)
         {
             try
             {
-                uow.GetRepository<CompanyRoute>().Delete(uow.GetRepository<CompanyRoute>().Get(z => z.Id == companyRouteId));
-                uow.SaveChanges();
+                _uow.GetRepository<CompanyRoute>().Delete(companyRouteId);
+                _uow.SaveChanges();
                 return true;
             }
             catch (Exception)
@@ -44,28 +44,22 @@ namespace Resital.BLL.Services
 
         public List<CompanyRouteDTO> getAllCompanyRoutes()
         {
-            return mapper.Map<List<CompanyRouteDTO>>(uow.GetRepository<CompanyRoute>().GetAll().ToList());
+            return _mapper.Map<List<CompanyRouteDTO>>(_uow.GetRepository<CompanyRoute>().GetAll().ToList());
         }
 
-        public CompanyRouteDTO getCompanyRoute(int companyRouteId)
+        public CompanyRouteDTO getCompanyRoute(Guid companyRouteId)
         {
-            var city = uow.GetRepository<CompanyRoute>().Get(z => z.Id == companyRouteId);
-            return mapper.Map<CompanyRouteDTO>(city);
-        }
-
-        public List<CompanyRouteDTO> getCompanyRouteName(string companyRouteName)
-        {
-            var cityList = uow.GetRepository<CompanyRoute>().Get(z => z.Company.Name.Contains(companyRouteName), null).ToList();
-            return mapper.Map<List<CompanyRouteDTO>>(cityList);
+            var city = _uow.GetRepository<CompanyRoute>().GetById(companyRouteId);
+            return _mapper.Map<CompanyRouteDTO>(city);
         }
 
         public CompanyRouteDTO updateCompanyRoute(CompanyRouteDTO companyRoute)
         {
-            var upCity = uow.GetRepository<CompanyRoute>().Get(z => z.Id == companyRoute.Id);
-            upCity = mapper.Map<CompanyRoute>(companyRoute);
-            uow.GetRepository<CompanyRoute>().Update(upCity);
-            uow.SaveChanges();
-            return mapper.Map<CompanyRouteDTO>(upCity);
+            var upCity = _uow.GetRepository<CompanyRoute>().GetById(companyRoute.Id);
+            upCity = _mapper.Map<CompanyRoute>(companyRoute);
+            _uow.GetRepository<CompanyRoute>().Update(upCity);
+            _uow.SaveChanges();
+            return _mapper.Map<CompanyRouteDTO>(upCity);
         }
     }
 }

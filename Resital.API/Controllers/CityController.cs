@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Resital.BLL.Abstract;
 using Resital.DTO;
+using System;
+using System.Collections.Generic;
 
 namespace Resital.API.Controllers
 {
@@ -25,16 +26,16 @@ namespace Resital.API.Controllers
 
         // GET api/<CityController>/5
         [HttpGet("{id}")]
-        public CityDTO Get(int id)
+        public CityDTO Get(Guid id)
         {
             return _cityService.getCity(id);
         }
 
         // POST api/<CityController>
         [HttpPost]
-        public CityDTO Post(CityDTO cityDTO)
+        public CityDTO Post(CityDTO cityDto)
         {
-            return _cityService.addCity(cityDTO);
+            return _cityService.addCity(cityDto);
         }
 
         // PUT api/<CityController>/5
@@ -46,7 +47,7 @@ namespace Resital.API.Controllers
 
         // DELETE api/<CityController>/5
         [HttpDelete("{id}")]
-        public bool Delete(int id)
+        public bool Delete(Guid id)
         {
             return _cityService.deleteCity(id);
         }

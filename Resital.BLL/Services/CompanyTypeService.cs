@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Resital.BLL.Services
 {
@@ -19,22 +19,16 @@ namespace Resital.BLL.Services
             this._mapper = mapper;
             this._uow = uow;
         }
-        
+
         public List<CompanyTypeDTO> getAllCompanyTypes()
         {
             return _mapper.Map<List<CompanyTypeDTO>>(_uow.GetRepository<CompanyType>().GetAll().ToList());
         }
 
-        public CompanyTypeDTO getCompanyType(int companyRouteId)
+        public CompanyTypeDTO getCompanyType(Guid companyRouteId)
         {
-            var companyType = _uow.GetRepository<CompanyType>().Get(z => z.Id == companyRouteId);
+            var companyType = _uow.GetRepository<CompanyType>().GetById(companyRouteId);
             return _mapper.Map<CompanyTypeDTO>(companyType);
-        }
-
-        public List<CompanyTypeDTO> getCompanyTypeName(string companyTypeName)
-        {
-            var companyTypeList = _uow.GetRepository<CompanyType>().Get(z => z.TypeName.Contains(companyTypeName), null).ToList();
-            return _mapper.Map<List<CompanyTypeDTO>>(companyTypeList);
         }
 
         public CompanyTypeDTO addCompanyType(CompanyTypeDTO companyType)
@@ -42,7 +36,7 @@ namespace Resital.BLL.Services
             if (!_uow.GetRepository<CompanyType>().GetAll().Any(z => z.TypeName == companyType.TypeName))
             {
                 var city = _mapper.Map<CompanyType>(companyType);
-                _uow.GetRepository<CompanyType>().Add(city);
+                _uow.GetRepository<CompanyType>().Insert(city);
                 _uow.SaveChanges();
                 return _mapper.Map<CompanyTypeDTO>(city);
             }
@@ -54,21 +48,21 @@ namespace Resital.BLL.Services
 
         public CompanyTypeDTO updateCompanyType(CompanyTypeDTO companyTypeDto)
         {
-            CompanyType companyType = _uow.GetRepository<CompanyType>().Get(z => z.Id == companyTypeDto.Id);
+            CompanyType companyType = _uow.GetRepository<CompanyType>().GetById(companyTypeDto.Id);
             companyType = _mapper.Map<CompanyType>(companyTypeDto);
             _uow.GetRepository<CompanyType>().Update(companyType);
             _uow.SaveChanges();
             return _mapper.Map<CompanyTypeDTO>(companyType);
         }
 
-        public bool deleteCompanyType(int companyTypeId)
+        public bool deleteCompanyType(Guid companyTypeId)
         {
             try
             {
-                var companyType = _uow.GetRepository<CompanyType>().Get(z => z.Id == companyTypeId);
-                _uow.GetRepository<CompanyType>().Delete(companyType);
+                var companyType = _uow.GetRepository<CompanyType>().GetById(companyTypeId);
+                _uow.GetRepository<CompanyType>().Delete(companyType.Id);
                 _uow.SaveChanges();
-                return true; 
+                return true;
             }
             catch (Exception)
             {

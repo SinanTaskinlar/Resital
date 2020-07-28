@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Resital.BLL.Services
 {
@@ -25,7 +25,7 @@ namespace Resital.BLL.Services
             if (!_uow.GetRepository<CompanyRegion>().GetAll().Any(z => z.Company == companyRegionDto.Company))
             {
                 var companyRegion = _mapper.Map<CompanyRegion>(companyRegionDto);
-                _uow.GetRepository<CompanyRegion>().Add(companyRegion);
+                _uow.GetRepository<CompanyRegion>().Insert(companyRegion);
                 _uow.SaveChanges();
                 return _mapper.Map<CompanyRegionDTO>(companyRegion);
             }
@@ -35,16 +35,14 @@ namespace Resital.BLL.Services
             }
         }
 
-        public bool deleteCompanyRegion(int companyRegionId)
+        public bool deleteCompanyRegion(Guid companyRegionId)
         {
-            if (companyRegionId <= 0) throw new ArgumentOutOfRangeException(nameof(companyRegionId));
             try
             {
-                var companyRegion = _uow.GetRepository<CompanyRegion>().Get(z => z.Id == companyRegionId);
-                _uow.GetRepository<CompanyRegion>().Delete(companyRegion);
+                var companyRegion = _uow.GetRepository<CompanyRegion>().GetById(companyRegionId);
+                _uow.GetRepository<CompanyRegion>().Delete(companyRegion.Id);
                 _uow.SaveChanges();
                 return true;
-                //TODO: https://www.uzmankirala.com/projeler/goster/37840/web_sayfamiza_uyelik_kayit_ve_davet_sistemi SMS 
             }
             catch (Exception)
             {
@@ -58,15 +56,15 @@ namespace Resital.BLL.Services
             return _mapper.Map<List<CompanyRegionDTO>>(articleList);
         }
 
-        public CompanyRegionDTO getCompanyRegion(int companyRegionId)
+        public CompanyRegionDTO getCompanyRegion(Guid companyRegionId)
         {
-            var companyRegion = _uow.GetRepository<CompanyRegion>().Get(z => z.Id == companyRegionId);
+            var companyRegion = _uow.GetRepository<CompanyRegion>().GetById(companyRegionId);
             return _mapper.Map<CompanyRegionDTO>(companyRegion);
         }
 
         public CompanyRegionDTO updateCompanyRegion(CompanyRegionDTO companyRegion)
         {
-            var upCompanyRegion = _uow.GetRepository<CompanyRegion>().Get(z => z.Id == companyRegion.Id);
+            var upCompanyRegion = _uow.GetRepository<CompanyRegion>().GetById(companyRegion.Id);
             upCompanyRegion = _mapper.Map<CompanyRegion>(companyRegion);
             _uow.GetRepository<CompanyRegion>().Update(upCompanyRegion);
             _uow.SaveChanges();

@@ -4,32 +4,31 @@ using Resital.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Resital.Core.Data.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DbContext context;
-        private readonly Dictionary<Type, object> Repos;
-        private bool disposed = false;
+        private readonly DbContext _context;
+        private readonly Dictionary<Type, object> _repos;
+        private bool _disposed = false;
 
-        public UnitOfWork(DbContext _context)
+        public UnitOfWork(DbContext context)
         {
-            context = _context;
-            Repos ??= new Dictionary<Type, object>();
+            this._context = context;
+            _repos ??= new Dictionary<Type, object>();
         }
 
-        public void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
-            if (!disposed)
+            if (!_disposed)
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
-            disposed = true;
+            _disposed = true;
         }
 
         public void Dispose()
@@ -38,20 +37,20 @@ namespace Resital.Core.Data.UnitOfWork
             GC.SuppressFinalize(this);
         }
 
-        public IRepository<T> GetRepository<T>() where T : Entity<int>
+        public IRepository<T> GetRepository<T>() where T : Entity<Guid>
         {
-            if (Repos.Keys.Contains(typeof(T)))
+            if (_repos.Keys.Contains(typeof(T)))
             {
-                return Repos[typeof(T)] as IRepository<T>;
+                return _repos[typeof(T)] as IRepository<T>;
             }
-            var repository = new RepositoryBase<T>(context);
-            Repos.Add(typeof(T), repository);
+            var repository = new RepositoryBase<T>(_context);
+            _repos.Add(typeof(T), repository);
             return repository;
         }
 
         public int SaveChanges()
         {
-            return context.SaveChanges();
+            return _context.SaveChanges();
         }
     }
 }

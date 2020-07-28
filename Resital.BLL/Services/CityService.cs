@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Resital.BLL.Services
 {
@@ -24,8 +24,8 @@ namespace Resital.BLL.Services
         {
             if (!_uow.GetRepository<City>().GetAll().Any(z => z.Name == cityDto.Name))
             {
-                City city = _mapper.Map<City>(cityDto);
-                _uow.GetRepository<City>().Add(city);
+                var city = _mapper.Map<City>(cityDto);
+                _uow.GetRepository<City>().Insert(city);
                 _uow.SaveChanges();
                 return _mapper.Map<CityDTO>(city);
             }
@@ -35,15 +35,14 @@ namespace Resital.BLL.Services
             }
         }
 
-        public bool deleteCity(int cityId)
+        public bool deleteCity(Guid cityId)
         {
             try
             {
-                var city = _uow.GetRepository<City>().Get(z => z.Id == cityId);
-                _uow.GetRepository<City>().Delete(city);
+                var city = _uow.GetRepository<City>().GetById(cityId);
+                _uow.GetRepository<City>().Delete(city.Id);
                 _uow.SaveChanges();
                 return true;
-                //TODO: https://www.uzmankirala.com/projeler/goster/37840/web_sayfamiza_uyelik_kayit_ve_davet_sistemi SMS 
             }
             catch (Exception)
             {
@@ -57,21 +56,15 @@ namespace Resital.BLL.Services
             return _mapper.Map<List<CityDTO>>(articleList);
         }
 
-        public CityDTO getCity(int cityId)
+        public CityDTO getCity(Guid cityId)
         {
-            var city = _uow.GetRepository<City>().Get(z => z.Id == cityId);
+            var city = _uow.GetRepository<City>().GetById(cityId);
             return _mapper.Map<CityDTO>(city);
-        }
-
-        public List<CityDTO> getCityName(string cityName)
-        {
-            var cityList = _uow.GetRepository<City>().Get(z => z.Name.Contains(cityName), null).ToList();
-            return _mapper.Map<List<CityDTO>>(cityList);
         }
 
         public CityDTO updateCity(CityDTO city)
         {
-            var upCity = _uow.GetRepository<City>().Get(z => z.Id == city.Id);
+            var upCity = _uow.GetRepository<City>().GetById(city.Id);
             upCity = _mapper.Map<City>(city);
             _uow.GetRepository<City>().Update(upCity);
             _uow.SaveChanges();

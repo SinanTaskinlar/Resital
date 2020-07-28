@@ -2,17 +2,19 @@
 using Resital.DTO;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Resital.BLL.Abstract
 {
     public interface IRoomLocationService : IServiceBase
     {
         List<RoomLocationDTO> getAllRoomLocations();
-        RoomLocationDTO getRoomLocation(int roomLocationId);
-        List<RoomLocationDTO> getRoomLocationName(string roomLocationName);
+
+        RoomLocationDTO getRoomLocation(Guid roomLocationId);
+
         RoomLocationDTO addRoomLocation(RoomLocationDTO roomLocation);
+
         RoomLocationDTO updateRoomLocation(RoomLocationDTO roomLocation);
-        bool deleteRoomLocation(int roomLocationId);
+
+        bool deleteRoomLocation(Guid roomLocationId);
     }
 }

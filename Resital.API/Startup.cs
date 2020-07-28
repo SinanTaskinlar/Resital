@@ -29,16 +29,27 @@ namespace Resital.API
             services.AddSingleton<DbContext, ResitalDbContext>();
             services.AddSingleton<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<ICityService, CityService>();
+            services.AddSingleton<ICompanyService, CompanyService>();
+            services.AddSingleton<ICompanyTypeService, CompanyTypeService>();
+            services.AddSingleton<IVehicleService, VehicleService>();
+            services.AddSingleton<IRoomService, RoomService>();
+            services.AddSingleton<IRoomLocationService, RoomLocationService>();
+            services.AddSingleton<IRoomTypeService, RoomTypeService>();
 
-            /*TODO: Log
-             https://www.tutorialsteacher.com/core/aspnet-core-logging
-             */
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "Swagger",
+                    Version = "v1"
+                });
+            });
 
             var mappingConfig = new MapperConfiguration(mc => mc.AddProfile(new MapperProfile()));
             var mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
         }
-        
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -47,9 +58,19 @@ namespace Resital.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SwaggerTest");
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseHsts();
+            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

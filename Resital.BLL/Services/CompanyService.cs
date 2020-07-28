@@ -1,11 +1,11 @@
-﻿using Resital.BLL.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
+using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Resital.BLL.Services
 {
@@ -22,26 +22,23 @@ namespace Resital.BLL.Services
 
         public List<CompanyDTO> getAllCompanies()
         {
-            return _mapper.Map<List<CompanyDTO>>(_uow.GetRepository<Company>().GetAll().ToList());
+            var compList = _uow.GetRepository<Company>().GetAll().ToList();
+            return _mapper.Map<List<CompanyDTO>>(compList);
         }
 
-        public CompanyDTO getCompanyRoute(int companyId)
+        public CompanyDTO getCompany(Guid companyId)
         {
-            throw new NotImplementedException();
-        }   
-
-        public List<CompanyDTO> getCompanyName(string companyName)
-        {
-            var cityList = _uow.GetRepository<Company>().Get(z => z.Name.Contains(companyName), null).ToList();
-            return _mapper.Map<List<CompanyDTO>>(cityList);
+            //var company = _uow.GetRepository<Company>().Get(z => z.Id == companyId, z => z.Rooms);
+            var company = _uow.GetRepository<Company>().GetById(z=> z.Rooms);
+            return _mapper.Map<CompanyDTO>(company);
         }
 
         public CompanyDTO addCompany(CompanyDTO companyDto)
         {
-            if (!_uow.GetRepository<CompanyRegion>().GetAll().Any(z => z.Company.Name == companyDto.Name))
+            if (companyDto.Name == null)
             {
                 var company = _mapper.Map<Company>(companyDto);
-                _uow.GetRepository<Company>().Add(company);
+                _uow.GetRepository<Company>().Insert(company);
                 _uow.SaveChanges();
                 return _mapper.Map<CompanyDTO>(company);
             }
@@ -53,20 +50,19 @@ namespace Resital.BLL.Services
 
         public CompanyDTO updateCompany(CompanyDTO company)
         {
-            var upCompany = _uow.GetRepository<Company>().Get(z => z.Id == company.Id);
+            var upCompany = _uow.GetRepository<Company>().GetById(company.Id);
             upCompany = _mapper.Map<Company>(company);
             _uow.GetRepository<Company>().Update(upCompany);
             _uow.SaveChanges();
             return _mapper.Map<CompanyDTO>(upCompany);
         }
 
-        public bool deleteCompany(int companyId)
+        public bool deleteCompany(Guid companyId)
         {
-            if (companyId <= 0) throw new ArgumentOutOfRangeException(nameof(companyId));
             try
             {
-                var Company = _uow.GetRepository<Company>().Get(z => z.Id == companyId);
-                _uow.GetRepository<Company>().Delete(Company);
+                var Company = _uow.GetRepository<Company>().GetById(companyId);
+                _uow.GetRepository<Company>().Delete(companyId);
                 _uow.SaveChanges();
                 return true;
             }

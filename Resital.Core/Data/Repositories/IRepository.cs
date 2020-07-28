@@ -1,28 +1,37 @@
 ﻿using Resital.Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using System.Linq.Expressions;
 
 namespace Resital.Core.Data.Repositories
 {
-    public interface IRepository<T> where T : Entity<int>
+    public interface IRepository<T> where T : Entity<Guid>
     {
-        T Add(T entity);
+        IEnumerable<T> GetAll();
+
+        T GetById(Guid id);
+
+        void Insert(T entity);
+
         void Update(T entity);
-        void Delete(T entity);
-        IQueryable<T> GetAll();
-        T Get(Expression<Func<T, bool>> filter = null);
-        T GetIncludes(Expression<Func<T, bool>> filter = null, params Expression<Func<T, object>>[] includes);
-        IQueryable<T> Get(params Expression<Func<T, object>>[] includes);
-        IQueryable<T> Get(Expression<Func<T, bool>> filter = null,
+
+        void Delete(Guid id);
+
+        T GetById(Expression<Func<T, bool>> filter = null);
+
+        T GetById(Expression<Func<T, bool>> filter = null, params Expression<Func<T, object>>[] includes);
+
+        IQueryable<T> GetById(params Expression<Func<T, object>>[] includes);
+
+        IQueryable<T> GetById(Expression<Func<T, bool>> filter = null,
                           Expression<Func<T, object>> include = null);
-        IQueryable<T> Get(Expression<Func<T, bool>> filter = null,
+
+        IQueryable<T> GetById(Expression<Func<T, bool>> filter = null,
                            Expression<Func<T, object>> include = null,
                            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
                            int? skip = null,
                            int? take = null
-            );
+                           );
     }
 }

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Resital.Core.Entities
 {
-    public interface IEntity<T> where T : struct
+    public interface IEntity<T>
     {
-        T Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

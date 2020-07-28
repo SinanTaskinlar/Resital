@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Resital.BLL.Services
@@ -13,27 +14,21 @@ namespace Resital.BLL.Services
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
 
-        public RegionService(IUnitOfWork uow,IMapper mapper)
+        public RegionService(IUnitOfWork uow, IMapper mapper)
         {
             this._mapper = mapper;
             this._uow = uow;
         }
-        
+
         public List<RegionDTO> getAllRegions()
         {
             return _mapper.Map<List<RegionDTO>>(_uow.GetRepository<Region>().GetAll().ToList());
         }
 
-        public RegionDTO getRegion(int regionId)
+        public RegionDTO getRegion(Guid regionId)
         {
-            var region = _uow.GetRepository<Region>().Get(z => z.Id == regionId);
+            var region = _uow.GetRepository<Region>().GetById(regionId);
             return _mapper.Map<RegionDTO>(region);
-        }
-
-        public List<RegionDTO> getRegionName(string regionName)
-        {
-            var cityList = _uow.GetRepository<Region>().Get(z => z.Name.Contains(regionName), null).ToList();
-            return _mapper.Map<List<RegionDTO>>(cityList);
         }
 
         public RegionDTO addRegion(RegionDTO regionDto)
@@ -41,7 +36,7 @@ namespace Resital.BLL.Services
             if (!_uow.GetRepository<Region>().GetAll().Any(z => z.Name == regionDto.Name))
             {
                 var region = _mapper.Map<Region>(regionDto);
-                _uow.GetRepository<Region>().Add(region);
+                _uow.GetRepository<Region>().Insert(region);
                 _uow.SaveChanges();
                 return _mapper.Map<RegionDTO>(region);
             }
@@ -53,19 +48,19 @@ namespace Resital.BLL.Services
 
         public RegionDTO updateRegion(RegionDTO regionDto)
         {
-            var upCity = _uow.GetRepository<Region>().Get(z => z.Id == regionDto.Id);
+            var upCity = _uow.GetRepository<Region>().GetById(regionDto.Id);
             upCity = _mapper.Map<Region>(regionDto);
             _uow.GetRepository<Region>().Update(upCity);
             _uow.SaveChanges();
             return _mapper.Map<RegionDTO>(upCity);
         }
 
-        public bool deleteRegion(int regionId)
+        public bool deleteRegion(Guid regionId)
         {
             try
             {
-                var region = _uow.GetRepository<Region>().Get(z => z.Id == regionId);
-                _uow.GetRepository<Region>().Delete(region);
+                var region = _uow.GetRepository<Region>().GetById(regionId);
+                _uow.GetRepository<Region>().Delete(region.Id);
                 _uow.SaveChanges();
                 return true;
             }

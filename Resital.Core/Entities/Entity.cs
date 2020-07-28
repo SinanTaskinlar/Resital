@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Resital.Core.Entities
 {
-    public abstract class Entity<T> : EntityBase, IEntity<T> where T : struct
+    public abstract class Entity<T> : EntityBase, IEntity<T>
     {
-        public virtual T Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
