@@ -25,7 +25,7 @@ namespace Resital.Core.Data.Repositories
 
         public void Insert(T entity)
         {
-            if (entity == null) throw new ArgumentNullException("entity");
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
 
             _entities.Add(entity);
             _context.SaveChanges();
@@ -33,13 +33,13 @@ namespace Resital.Core.Data.Repositories
 
         public void Update(T entity)
         {
-            if (entity == null) throw new ArgumentNullException("entity");
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
             _context.SaveChanges();
         }
 
         public void Delete(Guid id)
         {
-            if (id == null) throw new ArgumentNullException("entity");
+            if (id == default) throw new ArgumentNullException("entity");
             {
                 T entity = _entities.SingleOrDefault(s => s.Id == id);
                 _entities.Remove(entity);
@@ -54,7 +54,7 @@ namespace Resital.Core.Data.Repositories
 
         public T GetById(Expression<Func<T, bool>> filter = null, params Expression<Func<T, object>>[] includes)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public IQueryable<T> GetById(params Expression<Func<T, object>>[] includes)
@@ -72,7 +72,7 @@ namespace Resital.Core.Data.Repositories
         public IQueryable<T> GetById(Expression<Func<T, bool>> filter = null, Expression<Func<T, object>> include = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, int? skip = null,
             int? take = null)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public IEnumerable<T> GetAll()

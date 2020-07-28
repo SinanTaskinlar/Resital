@@ -11,7 +11,7 @@ namespace Resital.DTO
         public string Address { get; set; }
         public string Note { get; set; }
         public Guid CompanyTypeId { get; set; }
-        public ICollection<Room> Rooms { get; set; }
-        public ICollection<Vehicle> Vehicles { get; set; }
+        public List<Room> Rooms { get; set; }
+        public List<Vehicle> Vehicles { get; set; }
     }
 }

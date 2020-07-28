@@ -32,6 +32,40 @@ namespace Resital.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Company>()
+                .HasMany(c => c.Rooms)
+                .WithOne(c => c.Company);
+
+            modelBuilder.Entity<Room>()
+                .HasOne(e => e.Company)
+                .WithMany(e => e.Rooms);
+
+            modelBuilder.Entity<Company>()
+                .HasMany(c => c.Vehicles)
+                .WithOne(c => c.Company);
+
+            modelBuilder.Entity<Vehicle>()
+                .HasOne(c => c.Company)
+                .WithMany(c =>  c.Vehicles);
+
+            modelBuilder.Entity<RoomLocation>()
+                .HasMany(c => c.Rooms)
+                .WithOne(c => c.RoomLocation);
+
+            modelBuilder.Entity<Room>()
+                .HasOne(c => c.RoomLocation)
+                .WithMany(c => c.Rooms);
+
+            modelBuilder.Entity<RoomType>()
+                .HasMany(c => c.Rooms)
+                .WithOne(c => c.RoomType);
+
+            modelBuilder.Entity<Room>()
+                .HasOne(c => c.RoomType)
+                .WithMany(c => c.Rooms);
+
+
+
             modelBuilder.Entity<VehicleType>().HasData(
                 new VehicleType { Id = Guid.NewGuid(), Name = "Araba" },
                 new VehicleType { Id = Guid.NewGuid(), Name = "Uçak" },
