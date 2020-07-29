@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Resital.Model
 {
     public class Room : Entity<Guid>
-    { 
+    {
         public Company Company { get; set; }
         public RoomLocation RoomLocation { get; set; }
         public RoomType RoomType { get; set; }

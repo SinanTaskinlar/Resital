@@ -2,21 +2,25 @@
 using Microsoft.Extensions.Logging;
 using Resital.WebUI.Models;
 using System.Diagnostics;
+using Resital.BLL.Abstract;
 
 namespace Resital.WebUI.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICityService _cityService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICityService cityService)
         {
             _logger = logger;
+            _cityService = cityService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var vmAllCities = _cityService.getAllCities();
+            return View(vmAllCities);
         }
 
         public IActionResult Privacy()

@@ -62,8 +62,6 @@ namespace Resital.DAL
                 .HasOne(c => c.RoomType)
                 .WithMany(c => c.Rooms);
 
-
-
             modelBuilder.Entity<VehicleType>().HasData(
                 new VehicleType { Id = Guid.NewGuid(), Name = "Araba" },
                 new VehicleType { Id = Guid.NewGuid(), Name = "Uçak" },

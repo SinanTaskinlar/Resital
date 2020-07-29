@@ -1,8 +1,15 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Resital.BLL.Abstract;
+using Resital.BLL.Services;
+using Resital.Core.Data.UnitOfWork;
+using Resital.DAL;
+using Resital.Mapping;
 
 namespace Resital.WebUI
 {
@@ -19,6 +26,21 @@ namespace Resital.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddMvc();
+            services.AddControllers();
+            services.AddSingleton<DbContext, ResitalDbContext>();
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<ICityService, CityService>();
+            services.AddSingleton<ICompanyService, CompanyService>();
+            services.AddSingleton<ICompanyTypeService, CompanyTypeService>();
+            services.AddSingleton<IVehicleService, VehicleService>();
+            services.AddSingleton<IRoomService, RoomService>();
+            services.AddSingleton<IRoomLocationService, RoomLocationService>();
+            services.AddSingleton<IRoomTypeService, RoomTypeService>();
+
+            var mappingConfig = new MapperConfiguration(mc => mc.AddProfile(new MapperProfile()));
+            var mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +63,6 @@ namespace Resital.WebUI
             app.UseRouting();
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
