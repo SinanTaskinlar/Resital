@@ -8,16 +8,14 @@ namespace Resital.DAL
     {
         public ResitalDbContext()
         {
-            this.ChangeTracker.LazyLoadingEnabled = false;
+            this.ChangeTracker.LazyLoadingEnabled = true;
         }
 
         public DbSet<City> Cities { get; set; }
         public DbSet<Company> Companies { get; set; }
-        public DbSet<CompanyRegion> CompanyRegions { get; set; }
         public DbSet<CompanyRoute> CompanyRoutes { get; set; }
         public DbSet<CompanyType> CompanyTypes { get; set; }
         public DbSet<Guide> Guides { get; set; }
-        public DbSet<Region> Regions { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<RoomLocation> RoomLocations { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
@@ -71,17 +69,6 @@ namespace Resital.DAL
                 new VehicleType { Id = Guid.NewGuid(), Name = "Uçak" },
                 new VehicleType { Id = Guid.NewGuid(), Name = "Gemi" },
                 new VehicleType { Id = Guid.NewGuid(), Name = "Otobüs" }
-            );
-
-            modelBuilder.Entity<Region>().HasData(
-                new Region { Id = Guid.NewGuid(), Name = "Akdeniz" },
-                new Region { Id = Guid.NewGuid(), Name = "Doğu Anadolu" },
-                new Region { Id = Guid.NewGuid(), Name = "Ege" },
-                new Region { Id = Guid.NewGuid(), Name = "Güneydoğu Anadolu" },
-                new Region { Id = Guid.NewGuid(), Name = "İç Anadolu" },
-                new Region { Id = Guid.NewGuid(), Name = "Marmara" },
-                new Region { Id = Guid.NewGuid(), Name = "Karadeniz" },
-                new Region { Id = Guid.NewGuid(), Name = "Yurtdışı" }
             );
 
             modelBuilder.Entity<RoomType>().HasData(

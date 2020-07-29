@@ -38,140 +38,140 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f18c8cd4-215f-4194-b4ef-82415501d2c3"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(157),
+                            Id = new Guid("c153ce9d-3708-4471-8c12-fcc77c3a5a12"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3457),
                             Name = "İstanbul"
                         },
                         new
                         {
-                            Id = new Guid("41fa2fcb-f5ff-47b8-bafc-2f153ad56117"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(650),
+                            Id = new Guid("e80ffb33-0fe6-48b8-b29b-5fd23bbc31f4"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3744),
                             Name = "Ankara"
                         },
                         new
                         {
-                            Id = new Guid("8f2ea544-acaa-4a36-a3fa-e866f9726d60"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(669),
+                            Id = new Guid("1663e83b-ca62-4183-ac92-d4ce892867f9"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3773),
                             Name = "İzmir"
                         },
                         new
                         {
-                            Id = new Guid("c9478258-56d7-49a1-9cd0-438c55d8c5c4"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(676),
+                            Id = new Guid("cb3e2568-e09f-46c4-9641-b9557b20641e"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3776),
                             Name = "Antalya"
                         },
                         new
                         {
-                            Id = new Guid("b3738e56-558a-480d-981e-215d5eecbcfa"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(678),
+                            Id = new Guid("7ac907a0-d7ff-4778-8a7b-e073019aa3fc"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3782),
                             Name = "Adana"
                         },
                         new
                         {
-                            Id = new Guid("9c62a3d3-8cca-4d5d-9239-0f046fda6d5d"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(680),
+                            Id = new Guid("62ae5644-5cfd-4cb3-bb98-b33cd595597b"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3785),
                             Name = "Eskişehir"
                         },
                         new
                         {
-                            Id = new Guid("8bad33fa-da3f-4545-9259-7a41a80f42ab"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(682),
+                            Id = new Guid("b05d243d-21c6-446b-8261-9c7e9760beb4"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3787),
                             Name = "Afyonkarahisar "
                         },
                         new
                         {
-                            Id = new Guid("696e8e1b-c503-4ec5-a50e-fda24be6240a"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(684),
+                            Id = new Guid("217ccc91-a13e-4965-8988-7e4f3a9e70a4"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3789),
                             Name = "Artvin"
                         },
                         new
                         {
-                            Id = new Guid("9d244412-b276-45b8-8e71-3467cf97a006"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(686),
+                            Id = new Guid("ee865b66-f513-4dc5-98ea-3cd0e6fdf31d"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3791),
                             Name = "Balıkesir"
                         },
                         new
                         {
-                            Id = new Guid("f2bcce94-ea22-49f4-b04d-b5fe7ccc248e"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(689),
+                            Id = new Guid("7634d9fd-f7a6-44cd-9190-d8796e77f0fc"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3793),
                             Name = "Bursa"
                         },
                         new
                         {
-                            Id = new Guid("682087e8-0d26-4c3f-8e9e-c7bdf3a164db"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(691),
+                            Id = new Guid("aa8a6586-38ae-4d5f-96e3-dfd7f52705e8"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3795),
                             Name = "Çanakkale"
                         },
                         new
                         {
-                            Id = new Guid("399204ff-c5a5-4f0d-8d1e-616f6d5a5dd8"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(696),
+                            Id = new Guid("a90adf12-d9cb-43dc-8bdc-98f070b79a5e"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3797),
                             Name = "Diyarbakır"
                         },
                         new
                         {
-                            Id = new Guid("45fa5ea3-02ae-410a-884c-73fc5314eef5"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(698),
+                            Id = new Guid("f4203ddb-5565-4827-a786-0309390a6380"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3801),
                             Name = "Edirne"
                         },
                         new
                         {
-                            Id = new Guid("0a62fb86-bfd9-41a0-8f24-965b42616bdf"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(700),
+                            Id = new Guid("6a3504d2-b454-4aff-b23e-65a96f8593fe"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3803),
                             Name = "Kastamonu"
                         },
                         new
                         {
-                            Id = new Guid("0af25785-2feb-4fe0-9838-093cd956f3f3"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(703),
+                            Id = new Guid("80815145-a279-49ae-9145-26f564820adb"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3805),
                             Name = "Kütahya"
                         },
                         new
                         {
-                            Id = new Guid("f168a9a0-eedd-4f82-a26d-2a59700c68a1"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(705),
+                            Id = new Guid("d8c823c2-081c-4dd2-a898-e94b63c89ae9"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3807),
                             Name = "Muğla"
                         },
                         new
                         {
-                            Id = new Guid("d0ca1c4d-cdf6-4131-9ce5-7cae50ba5aa6"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(707),
+                            Id = new Guid("71c2e9a5-b3ea-4108-8f13-448f0280bd06"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3809),
                             Name = "Nevşehir"
                         },
                         new
                         {
-                            Id = new Guid("2b7830c8-f41c-453f-aa09-b63a06279600"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(709),
+                            Id = new Guid("d88a1aa5-1279-43c4-87c5-2ae84a963b40"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3811),
                             Name = "Sinop"
                         },
                         new
                         {
-                            Id = new Guid("b7722d28-661d-4e74-8ff0-9d3643fbf938"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(710),
+                            Id = new Guid("d2053be5-1a0b-47f5-8862-784f98e2109d"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3812),
                             Name = "Sivas"
                         },
                         new
                         {
-                            Id = new Guid("180706bb-d927-4c80-b9e7-740924d8eafa"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(715),
+                            Id = new Guid("87f23a1c-dc1c-4217-9bbf-3e712e0ed01b"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3814),
                             Name = "Şanlıurfa"
                         },
                         new
                         {
-                            Id = new Guid("b2ad5115-0ea4-48a0-b6f7-63d6d54d930a"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(717),
+                            Id = new Guid("c48ed081-8adf-4b3a-8b0d-2b09c9e60d6b"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3818),
                             Name = "Tokat"
                         },
                         new
                         {
-                            Id = new Guid("67c22f9d-b57b-4b32-8535-e6d79ad21218"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(719),
+                            Id = new Guid("6441549a-4f8f-48c0-b916-e7f2ae684bdd"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3820),
                             Name = "Trabzon"
                         },
                         new
                         {
-                            Id = new Guid("c7770d5e-c2eb-4a6c-9307-1fa727f10a3e"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 194, DateTimeKind.Local).AddTicks(721),
+                            Id = new Guid("f35676ba-a3e7-44f5-92b1-acada39683bb"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(3822),
                             Name = "Yozgat"
                         });
                 });
@@ -202,30 +202,6 @@ namespace Resital.DAL.Migrations
                     b.HasIndex("CompanyTypeId");
 
                     b.ToTable("Companies");
-                });
-
-            modelBuilder.Entity("Resital.Model.CompanyRegion", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("CompanyId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("RegionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.HasIndex("RegionId");
-
-                    b.ToTable("CompanyRegions");
                 });
 
             modelBuilder.Entity("Resital.Model.CompanyRoute", b =>
@@ -271,38 +247,38 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4d447864-3590-4c07-9c57-fe8f2cb8cf20"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(9089),
+                            Id = new Guid("d03d01e6-36b4-4b4b-96a7-117f497e6546"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(2447),
                             TypeName = "Hotel Company"
                         },
                         new
                         {
-                            Id = new Guid("f53fe6fd-7854-4f07-b413-39b5ad759456"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(9406),
+                            Id = new Guid("ff283664-e78e-43db-9f50-08b45fa1f529"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(2745),
                             TypeName = "Tour Company "
                         },
                         new
                         {
-                            Id = new Guid("bb092416-4b17-49fa-911a-d5a269be20a3"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(9432),
+                            Id = new Guid("85cea106-a7d7-4aa3-b865-3024ee1d3447"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(2772),
                             TypeName = "AirPlane Company "
                         },
                         new
                         {
-                            Id = new Guid("b9434cfe-bcd1-4f3b-8712-87a724c54a7c"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(9434),
+                            Id = new Guid("7ea38dfd-d2d9-4f73-9836-20c646051171"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(2775),
                             TypeName = "Transfer Company "
                         },
                         new
                         {
-                            Id = new Guid("d5476bf9-abee-4f41-932b-9ea65ac6f59e"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(9436),
+                            Id = new Guid("eb216a45-5344-4069-b53f-6d5b5055fd5c"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(2777),
                             TypeName = "RentACar Company "
                         },
                         new
                         {
-                            Id = new Guid("69531377-3205-47e9-9c02-e4e4fd2b59b7"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(9493),
+                            Id = new Guid("c77ec791-d7f0-43e7-ba76-e616c18a291b"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(2779),
                             TypeName = "Ship Company "
                         });
                 });
@@ -333,73 +309,6 @@ namespace Resital.DAL.Migrations
                     b.ToTable("Guides");
                 });
 
-            modelBuilder.Entity("Resital.Model.Region", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Regions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("cb24c16d-ac53-40c2-b8eb-f2d4715eae59"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(4111),
-                            Name = "Akdeniz"
-                        },
-                        new
-                        {
-                            Id = new Guid("744fd9f0-1729-4d84-8d5d-d1d28f27e933"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(5196),
-                            Name = "Doğu Anadolu"
-                        },
-                        new
-                        {
-                            Id = new Guid("3ac9c6a8-a5cc-4ccc-bcbf-1de4c9497aae"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(5217),
-                            Name = "Ege"
-                        },
-                        new
-                        {
-                            Id = new Guid("47892553-aa73-44d2-977e-f944abbbe5ec"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(5220),
-                            Name = "Güneydoğu Anadolu"
-                        },
-                        new
-                        {
-                            Id = new Guid("2520b464-5bb7-4f40-b47a-d3563e9453a0"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(5222),
-                            Name = "İç Anadolu"
-                        },
-                        new
-                        {
-                            Id = new Guid("414573ba-125e-4083-bd61-a01cb928c383"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(5224),
-                            Name = "Marmara"
-                        },
-                        new
-                        {
-                            Id = new Guid("f9fe3b11-c38a-4ec7-b788-c45fdeade220"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(5226),
-                            Name = "Karadeniz"
-                        },
-                        new
-                        {
-                            Id = new Guid("aaca2287-1c33-4daa-9b0e-802bc9630bed"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(5228),
-                            Name = "Yurtdışı"
-                        });
-                });
-
             modelBuilder.Entity("Resital.Model.Room", b =>
                 {
                     b.Property<Guid>("Id")
@@ -415,10 +324,10 @@ namespace Resital.DAL.Migrations
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("RoomLocationId")
+                    b.Property<Guid?>("RoomLocationId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RoomTypeId")
+                    b.Property<Guid?>("RoomTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -451,20 +360,20 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8d97f7ec-3819-42da-a9d2-d74a8e78e695"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(7901),
+                            Id = new Guid("2c0c3ad4-dc88-41a3-9690-f7a4c11918cb"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(1467),
                             Name = "DNZ"
                         },
                         new
                         {
-                            Id = new Guid("a68b9bd8-45e9-4990-a659-db8d7398d338"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(8222),
+                            Id = new Guid("afe7280b-0f43-4b8e-99a4-cd832c861e9b"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(1785),
                             Name = "GNL "
                         },
                         new
                         {
-                            Id = new Guid("33dfb9fb-fe4b-4434-8424-3b9d222fdce8"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(8240),
+                            Id = new Guid("aa2a0a73-2584-41cd-ba00-459fdb07fb87"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(1805),
                             Name = "PRK "
                         });
                 });
@@ -488,32 +397,32 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4ed77298-cdff-49a7-a685-f8b0c8e8e6f9"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(6831),
+                            Id = new Guid("b841a2dd-b9e4-4385-b5cd-b8c5e58d90a8"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(409),
                             Name = "SGL"
                         },
                         new
                         {
-                            Id = new Guid("485a148d-2b21-4f76-add9-c3c3c5b6be41"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(7177),
+                            Id = new Guid("acbc5bf8-d023-4360-9923-7ee9fac8606c"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(780),
                             Name = "DBL"
                         },
                         new
                         {
-                            Id = new Guid("5d436b0b-dd53-478b-9f77-186dec81419b"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(7200),
+                            Id = new Guid("c5acb95d-c734-479e-962e-e944a169c3e5"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(810),
                             Name = "TRP"
                         },
                         new
                         {
-                            Id = new Guid("4ba016ff-a14f-49ee-ba25-c44590c39b3b"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(7202),
+                            Id = new Guid("102b1dac-bcf4-459f-9ff8-e04c3af422f8"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(813),
                             Name = "DBL+1"
                         },
                         new
                         {
-                            Id = new Guid("b92f61ff-8c58-4ff6-aab4-51b000d6ae0d"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 193, DateTimeKind.Local).AddTicks(7204),
+                            Id = new Guid("7aaeaf3a-1b70-4415-a985-730888350857"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 546, DateTimeKind.Local).AddTicks(815),
                             Name = "TRP+1"
                         });
                 });
@@ -522,6 +431,9 @@ namespace Resital.DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -537,6 +449,8 @@ namespace Resital.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
 
                     b.HasIndex("EndLocationId");
 
@@ -591,26 +505,26 @@ namespace Resital.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8e196584-17f3-4220-9a1c-f19a6572f931"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 191, DateTimeKind.Local).AddTicks(3636),
+                            Id = new Guid("93feff4b-8f80-4e69-ad57-fb4db9029ca5"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 543, DateTimeKind.Local).AddTicks(5188),
                             Name = "Araba"
                         },
                         new
                         {
-                            Id = new Guid("ac6a27f6-95a8-4dff-b3d6-159c4436f058"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 192, DateTimeKind.Local).AddTicks(2475),
+                            Id = new Guid("a1f321ee-0923-4a5e-8407-519bd3844027"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 544, DateTimeKind.Local).AddTicks(9337),
                             Name = "Uçak"
                         },
                         new
                         {
-                            Id = new Guid("8f97e3a7-2745-4cd6-b19f-08fb98f5c14a"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 192, DateTimeKind.Local).AddTicks(2531),
+                            Id = new Guid("a9035bbe-0d10-4ffb-ac85-dc6089536d9c"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 544, DateTimeKind.Local).AddTicks(9409),
                             Name = "Gemi"
                         },
                         new
                         {
-                            Id = new Guid("082f3933-0e96-44a2-8246-37c0d599c046"),
-                            CreatedAt = new DateTime(2020, 7, 29, 0, 31, 31, 192, DateTimeKind.Local).AddTicks(2535),
+                            Id = new Guid("7bba55b1-66d5-42e4-9578-c83ca2badace"),
+                            CreatedAt = new DateTime(2020, 7, 29, 11, 40, 34, 544, DateTimeKind.Local).AddTicks(9413),
                             Name = "Otobüs"
                         });
                 });
@@ -618,21 +532,10 @@ namespace Resital.DAL.Migrations
             modelBuilder.Entity("Resital.Model.Company", b =>
                 {
                     b.HasOne("Resital.Model.CompanyType", "CompanyType")
-                        .WithMany()
+                        .WithMany("Companies")
                         .HasForeignKey("CompanyTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Resital.Model.CompanyRegion", b =>
-                {
-                    b.HasOne("Resital.Model.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId");
-
-                    b.HasOne("Resital.Model.Region", "Region")
-                        .WithMany()
-                        .HasForeignKey("RegionId");
                 });
 
             modelBuilder.Entity("Resital.Model.CompanyRoute", b =>
@@ -653,20 +556,20 @@ namespace Resital.DAL.Migrations
                         .HasForeignKey("CompanyId");
 
                     b.HasOne("Resital.Model.RoomLocation", "RoomLocation")
-                        .WithMany()
-                        .HasForeignKey("RoomLocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Rooms")
+                        .HasForeignKey("RoomLocationId");
 
                     b.HasOne("Resital.Model.RoomType", "RoomType")
-                        .WithMany()
-                        .HasForeignKey("RoomTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Rooms")
+                        .HasForeignKey("RoomTypeId");
                 });
 
             modelBuilder.Entity("Resital.Model.Route", b =>
                 {
+                    b.HasOne("Resital.Model.Company", "Company")
+                        .WithMany("Routes")
+                        .HasForeignKey("CompanyId");
+
                     b.HasOne("Resital.Model.City", "EndLocation")
                         .WithMany()
                         .HasForeignKey("EndLocationId");
@@ -683,7 +586,7 @@ namespace Resital.DAL.Migrations
                         .HasForeignKey("CompanyId");
 
                     b.HasOne("Resital.Model.VehicleType", "VehicleType")
-                        .WithMany()
+                        .WithMany("Vehicles")
                         .HasForeignKey("VehicleTypeId");
                 });
 #pragma warning restore 612, 618

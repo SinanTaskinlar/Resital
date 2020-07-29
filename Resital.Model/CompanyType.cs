@@ -1,5 +1,6 @@
 ﻿using Resital.Core.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace Resital.Model
 {
@@ -7,5 +8,6 @@ namespace Resital.Model
     {
         public string TypeName { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public ICollection<Company> Companies { get; set; }
     }
 }
