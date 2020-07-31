@@ -3,7 +3,7 @@ using System;
 
 namespace Resital.DTO
 {
-    public class RoomDTO
+    public class RoomDto
     {
         public Guid Id { get; set; }
         public Company Company { get; set; }

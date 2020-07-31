@@ -20,28 +20,28 @@ namespace Resital.BLL.Services
             this._uow = uow;
         }
 
-        public List<RoomTypeDTO> getAllRoomTypes()
+        public List<RoomTypeDto> getAllRoomTypes()
         {
             var room = _uow.GetRepository<RoomType>().GetAll().ToList();
-            return _mapper.Map<List<RoomTypeDTO>>(room);
+            return _mapper.Map<List<RoomTypeDto>>(room);
         }
 
-        public RoomTypeDTO getRoomType(int roomTypeId)
+        public RoomTypeDto getRoomType(int roomTypeId)
         {
             throw new NotImplementedException();
         }
 
-        public List<RoomTypeDTO> getRoomTypeName(string roomTypeName)
+        public List<RoomTypeDto> getRoomTypeName(string roomTypeName)
         {
             throw new NotImplementedException();
         }
 
-        public RoomTypeDTO addRoomType(RoomTypeDTO roomType)
+        public RoomTypeDto addRoomType(RoomTypeDto roomType)
         {
             throw new NotImplementedException();
         }
 
-        public RoomTypeDTO updateRoomType(RoomTypeDTO roomType)
+        public RoomTypeDto updateRoomType(RoomTypeDto roomType)
         {
             throw new NotImplementedException();
         }

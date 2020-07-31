@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Resital.DTO
 {
-    public class CompanyDTO
+    public class CompanyDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

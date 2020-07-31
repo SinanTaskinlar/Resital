@@ -20,7 +20,7 @@ namespace Resital.API.Controllers
 
         // GET: api/<RoomLocationController>
         [HttpGet]
-        public List<RoomLocationDTO> Get()
+        public List<RoomLocationDto> Get()
         {
             return _roomLocationService.getAllRoomLocations();
         }

@@ -21,28 +21,28 @@ namespace Resital.API.Controllers
 
         // GET: api/<VehiclesController>
         [HttpGet]
-        public List<VehicleDTO> Get()
+        public List<VehicleDto> Get()
         {
             return _vehicleService.getAllVehicles();
         }
 
         // GET api/<VehiclesController>/5
         [HttpGet("{id}")]
-        public VehicleDTO Get(Guid id)
+        public VehicleDto Get(Guid id)
         {
             return _vehicleService.getVehicle(id);
         }
 
         // POST api/<VehiclesController>
         [HttpPost]
-        public VehicleDTO Post(VehicleDTO vehicleDto)
+        public VehicleDto Post(VehicleDto vehicleDto)
         {
             return _vehicleService.addVehicle(vehicleDto);
         }
 
         // PUT api/<VehiclesController>/5
         [HttpPut("{id}")]
-        public VehicleDTO Put(VehicleDTO vehicleDto)
+        public VehicleDto Put(VehicleDto vehicleDto)
         {
             return _vehicleService.updateVehicle(vehicleDto);
         }

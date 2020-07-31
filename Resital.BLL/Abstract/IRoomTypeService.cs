@@ -6,15 +6,15 @@ namespace Resital.BLL.Abstract
 {
     public interface IRoomTypeService : IServiceBase
     {
-        List<RoomTypeDTO> getAllRoomTypes();
+        List<RoomTypeDto> getAllRoomTypes();
 
-        RoomTypeDTO getRoomType(int roomTypeId);
+        RoomTypeDto getRoomType(int roomTypeId);
 
-        List<RoomTypeDTO> getRoomTypeName(string roomTypeName);
+        List<RoomTypeDto> getRoomTypeName(string roomTypeName);
 
-        RoomTypeDTO addRoomType(RoomTypeDTO roomType);
+        RoomTypeDto addRoomType(RoomTypeDto roomType);
 
-        RoomTypeDTO updateRoomType(RoomTypeDTO roomType);
+        RoomTypeDto updateRoomType(RoomTypeDto roomType);
 
         bool deleteRoomType(int roomTypeId);
     }

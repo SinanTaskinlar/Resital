@@ -8,14 +8,9 @@ namespace Resital.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly ICityService _cityService;
 
-        public HomeController(ILogger<HomeController> logger, ICityService cityService)
-        {
-            _logger = logger;
-            _cityService = cityService;
-        }
+        public HomeController(ICityService cityService) => _cityService = cityService;
 
         public IActionResult Index()
         {

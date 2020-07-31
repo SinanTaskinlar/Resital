@@ -20,25 +20,25 @@ namespace Resital.BLL.Services
             this._uow = uow;
         }
 
-        public List<CompanyTypeDTO> getAllCompanyTypes()
+        public List<CompanyTypeDto> getAllCompanyTypes()
         {
-            return _mapper.Map<List<CompanyTypeDTO>>(_uow.GetRepository<CompanyType>().GetAll().ToList());
+            return _mapper.Map<List<CompanyTypeDto>>(_uow.GetRepository<CompanyType>().GetAll().ToList());
         }
 
-        public CompanyTypeDTO getCompanyType(Guid companyRouteId)
+        public CompanyTypeDto getCompanyType(Guid companyRouteId)
         {
             var companyType = _uow.GetRepository<CompanyType>().GetById(companyRouteId);
-            return _mapper.Map<CompanyTypeDTO>(companyType);
+            return _mapper.Map<CompanyTypeDto>(companyType);
         }
 
-        public CompanyTypeDTO addCompanyType(CompanyTypeDTO companyType)
+        public CompanyTypeDto addCompanyType(CompanyTypeDto companyType)
         {
             if (!_uow.GetRepository<CompanyType>().GetAll().Any(z => z.TypeName == companyType.TypeName))
             {
                 var city = _mapper.Map<CompanyType>(companyType);
                 _uow.GetRepository<CompanyType>().Insert(city);
                 _uow.SaveChanges();
-                return _mapper.Map<CompanyTypeDTO>(city);
+                return _mapper.Map<CompanyTypeDto>(city);
             }
             else
             {
@@ -46,13 +46,13 @@ namespace Resital.BLL.Services
             }
         }
 
-        public CompanyTypeDTO updateCompanyType(CompanyTypeDTO companyTypeDto)
+        public CompanyTypeDto updateCompanyType(CompanyTypeDto companyTypeDto)
         {
             CompanyType companyType = _uow.GetRepository<CompanyType>().GetById(companyTypeDto.Id);
             companyType = _mapper.Map<CompanyType>(companyTypeDto);
             _uow.GetRepository<CompanyType>().Update(companyType);
             _uow.SaveChanges();
-            return _mapper.Map<CompanyTypeDTO>(companyType);
+            return _mapper.Map<CompanyTypeDto>(companyType);
         }
 
         public bool deleteCompanyType(Guid companyTypeId)

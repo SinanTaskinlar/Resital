@@ -20,14 +20,14 @@ namespace Resital.BLL.Services
             this._mapper = mapper;
         }
 
-        public GuideDTO addGuide(GuideDTO guideDto)
+        public GuideDto addGuide(GuideDto guideDto)
         {
             if (!_uow.GetRepository<Guide>().GetAll().Any(z => z.Name == guideDto.Name))
             {
                 var guide = _mapper.Map<Guide>(guideDto);
                 _uow.GetRepository<Guide>().Insert(guide);
                 _uow.SaveChanges();
-                return _mapper.Map<GuideDTO>(guide);
+                return _mapper.Map<GuideDto>(guide);
             }
             else
             {
@@ -50,24 +50,24 @@ namespace Resital.BLL.Services
             }
         }
 
-        public List<GuideDTO> getAllGuides()
+        public List<GuideDto> getAllGuides()
         {
-            return _mapper.Map<List<GuideDTO>>(_uow.GetRepository<Guide>().GetAll().ToList());
+            return _mapper.Map<List<GuideDto>>(_uow.GetRepository<Guide>().GetAll().ToList());
         }
 
-        public GuideDTO getGuide(Guid guideId)
+        public GuideDto getGuide(Guid guideId)
         {
             var city = _uow.GetRepository<Guide>().GetById(guideId);
-            return _mapper.Map<GuideDTO>(city);
+            return _mapper.Map<GuideDto>(city);
         }
 
-        public GuideDTO updateGuide(GuideDTO guide)
+        public GuideDto updateGuide(GuideDto guide)
         {
             var upCity = _uow.GetRepository<Guide>().GetById(guide.Id);
             upCity = _mapper.Map<Guide>(guide);
             _uow.GetRepository<Guide>().Update(upCity);
             _uow.SaveChanges();
-            return _mapper.Map<GuideDTO>(upCity);
+            return _mapper.Map<GuideDto>(upCity);
         }
     }
 }

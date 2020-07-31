@@ -3,7 +3,7 @@ using System;
 
 namespace Resital.DTO
 {
-    public class CompanyRouteDTO
+    public class CompanyRouteDto
     {
         public Guid Id { get; set; }
         public Company Company { get; set; }

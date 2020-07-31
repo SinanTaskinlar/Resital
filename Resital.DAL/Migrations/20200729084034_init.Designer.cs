@@ -11,7 +11,7 @@ namespace Resital.DAL.Migrations
 {
     [DbContext(typeof(ResitalDbContext))]
     [Migration("20200729084034_init")]
-    partial class init
+    partial class İnit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

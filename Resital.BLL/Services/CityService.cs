@@ -20,14 +20,14 @@ namespace Resital.BLL.Services
             this._mapper = mapper;
         }
 
-        public CityDTO addCity(CityDTO cityDto)
+        public CityDto addCity(CityDto cityDto)
         {
             if (!_uow.GetRepository<City>().GetAll().Any(z => z.Name == cityDto.Name))
             {
                 var city = _mapper.Map<City>(cityDto);
                 _uow.GetRepository<City>().Insert(city);
                 _uow.SaveChanges();
-                return _mapper.Map<CityDTO>(city);
+                return _mapper.Map<CityDto>(city);
             }
             else
             {
@@ -50,25 +50,25 @@ namespace Resital.BLL.Services
             }
         }
 
-        public List<CityDTO> getAllCities()
+        public List<CityDto> getAllCities()
         {
             var articleList = _uow.GetRepository<City>().GetAll().ToList();
-            return _mapper.Map<List<CityDTO>>(articleList);
+            return _mapper.Map<List<CityDto>>(articleList);
         }
 
-        public CityDTO getCity(Guid cityId)
+        public CityDto getCity(Guid cityId)
         {
             var city = _uow.GetRepository<City>().GetById(cityId);
-            return _mapper.Map<CityDTO>(city);
+            return _mapper.Map<CityDto>(city);
         }
 
-        public CityDTO updateCity(CityDTO city)
+        public CityDto updateCity(CityDto city)
         {
             var upCity = _uow.GetRepository<City>().GetById(city.Id);
             upCity = _mapper.Map<City>(city);
             _uow.GetRepository<City>().Update(upCity);
             _uow.SaveChanges();
-            return _mapper.Map<CityDTO>(upCity);
+            return _mapper.Map<CityDto>(upCity);
         }
     }
 }

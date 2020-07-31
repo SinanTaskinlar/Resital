@@ -7,13 +7,13 @@ namespace Resital.BLL.Abstract
 {
     public interface ICompanyTypeService : IServiceBase
     {
-        List<CompanyTypeDTO> getAllCompanyTypes();
+        List<CompanyTypeDto> getAllCompanyTypes();
 
-        CompanyTypeDTO getCompanyType(Guid companyRouteId);
+        CompanyTypeDto getCompanyType(Guid companyRouteId);
 
-        CompanyTypeDTO addCompanyType(CompanyTypeDTO companyType);
+        CompanyTypeDto addCompanyType(CompanyTypeDto companyType);
 
-        CompanyTypeDTO updateCompanyType(CompanyTypeDTO companyType);
+        CompanyTypeDto updateCompanyType(CompanyTypeDto companyType);
 
         bool deleteCompanyType(Guid companyTypeId);
     }

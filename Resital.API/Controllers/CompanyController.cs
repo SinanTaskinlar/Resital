@@ -19,28 +19,28 @@ namespace Resital.API.Controllers
 
         // GET: api/<CompanyController>
         [HttpGet]
-        public List<CompanyDTO> Get()
+        public List<CompanyDto> Get()
         {
             return _companyService.getAllCompanies();
         }
 
         // GET api/<CompanyController>/5
         [HttpGet("{id}")]
-        public CompanyDTO Get(Guid id)
+        public CompanyDto Get(Guid id)
         {
             return _companyService.getCompany(id);
         }
 
         // POST api/<CompanyController>
         [HttpPost]
-        public CompanyDTO Post(CompanyDTO companyDto)
+        public CompanyDto Post(CompanyDto companyDto)
         {
             return _companyService.addCompany(companyDto);
         }
 
         // PUT api/<CompanyController>/5
         [HttpPut("{id}")]
-        public CompanyDTO Put(CompanyDTO companyDto)
+        public CompanyDto Put(CompanyDto companyDto)
         {
             return _companyService.updateCompany(companyDto);
         }

@@ -2,7 +2,7 @@
 
 namespace Resital.DTO
 {
-    public class CompanyTypeDTO
+    public class CompanyTypeDto
     {
         public Guid Id { get; set; }
         public string TypeName { get; set; }

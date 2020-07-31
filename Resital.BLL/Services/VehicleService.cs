@@ -20,25 +20,25 @@ namespace Resital.BLL.Services
             this._mapper = mapper;
         }
 
-        public List<VehicleDTO> getAllVehicles()
+        public List<VehicleDto> getAllVehicles()
         {
-            return _mapper.Map<List<VehicleDTO>>(_uow.GetRepository<Vehicle>().GetAll().ToList());
+            return _mapper.Map<List<VehicleDto>>(_uow.GetRepository<Vehicle>().GetAll().ToList());
         }
 
-        public VehicleDTO getVehicle(Guid vehicleId)
+        public VehicleDto getVehicle(Guid vehicleId)
         {
             var route = _uow.GetRepository<Vehicle>().GetById(vehicleId);
-            return _mapper.Map<VehicleDTO>(route);
+            return _mapper.Map<VehicleDto>(route);
         }
 
-        public VehicleDTO addVehicle(VehicleDTO vehicle)
+        public VehicleDto addVehicle(VehicleDto vehicle)
         {
             if (!_uow.GetRepository<Vehicle>().GetAll().Any(z => z.Name == vehicle.Name))
             {
                 var company = _mapper.Map<Vehicle>(vehicle);
                 _uow.GetRepository<Vehicle>().Insert(company);
                 _uow.SaveChanges();
-                return _mapper.Map<VehicleDTO>(company);
+                return _mapper.Map<VehicleDto>(company);
             }
             else
             {
@@ -46,21 +46,21 @@ namespace Resital.BLL.Services
             }
         }
 
-        public VehicleDTO updateVehicle(VehicleDTO vehicle)
+        public VehicleDto updateVehicle(VehicleDto vehicle)
         {
             var upCompanyRegion = _uow.GetRepository<Vehicle>().GetById(vehicle.Id);
             upCompanyRegion = _mapper.Map<Vehicle>(vehicle);
             _uow.GetRepository<Vehicle>().Update(upCompanyRegion);
             _uow.SaveChanges();
-            return _mapper.Map<VehicleDTO>(upCompanyRegion);
+            return _mapper.Map<VehicleDto>(upCompanyRegion);
         }
 
         public bool deleteVehicle(Guid vehicleId)
         {
             try
             {
-                var Company = _uow.GetRepository<Vehicle>().GetById(vehicleId);
-                _uow.GetRepository<Vehicle>().Delete(Company.Id);
+                var company = _uow.GetRepository<Vehicle>().GetById(vehicleId);
+                _uow.GetRepository<Vehicle>().Delete(company.Id);
                 _uow.SaveChanges();
                 return true;
             }

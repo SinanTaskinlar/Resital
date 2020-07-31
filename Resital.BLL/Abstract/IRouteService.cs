@@ -7,13 +7,13 @@ namespace Resital.BLL.Abstract
 {
     public interface IRouteService : IServiceBase
     {
-        List<RouteDTO> getAllRoutes();
+        List<RouteDto> getAllRoutes();
 
-        RouteDTO getRoute(Guid routeId);
+        RouteDto getRoute(Guid routeId);
 
-        RouteDTO addRoute(RouteDTO route);
+        RouteDto addRoute(RouteDto route);
 
-        RouteDTO updateRoute(RouteDTO route);
+        RouteDto updateRoute(RouteDto route);
 
         bool deleteRoute(Guid routeId);
     }

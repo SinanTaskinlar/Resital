@@ -21,28 +21,28 @@ namespace Resital.API.Controllers
 
         // GET: api/<RoomController>
         [HttpGet]
-        public List<RoomDTO> Get()
+        public List<RoomDto> Get()
         {
             return _roomService.getAllRooms();
         }
 
         // GET api/<RoomController>/5
         [HttpGet("{id}")]
-        public RoomDTO Get(Guid id)
+        public RoomDto Get(Guid id)
         {
             return _roomService.getRoom(id);
         }
 
         // POST api/<RoomController>
         [HttpPost]
-        public RoomDTO Post(RoomDTO roomDto)
+        public RoomDto Post(RoomDto roomDto)
         {
             return _roomService.addRoom(roomDto);
         }
 
         // PUT api/<RoomController>
         [HttpPut]
-        public RoomDTO Put(RoomDTO roomDto)
+        public RoomDto Put(RoomDto roomDto)
         {
             return _roomService.updateRoom(roomDto);
         }

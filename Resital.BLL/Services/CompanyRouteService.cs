@@ -20,12 +20,12 @@ namespace Resital.BLL.Services
             this._mapper = mapper;
         }
 
-        public CompanyRouteDTO addCompanyRoute(CompanyRouteDTO companyRoute)
+        public CompanyRouteDto addCompanyRoute(CompanyRouteDto companyRoute)
         {
-            CompanyRoute Guide = _mapper.Map<CompanyRoute>(companyRoute);
-            _uow.GetRepository<CompanyRoute>().Insert(Guide);
+            CompanyRoute guide = _mapper.Map<CompanyRoute>(companyRoute);
+            _uow.GetRepository<CompanyRoute>().Insert(guide);
             _uow.SaveChanges();
-            return _mapper.Map<CompanyRouteDTO>(Guide);
+            return _mapper.Map<CompanyRouteDto>(guide);
         }
 
         public bool deleteCompanyRoute(Guid companyRouteId)
@@ -42,24 +42,24 @@ namespace Resital.BLL.Services
             }
         }
 
-        public List<CompanyRouteDTO> getAllCompanyRoutes()
+        public List<CompanyRouteDto> getAllCompanyRoutes()
         {
-            return _mapper.Map<List<CompanyRouteDTO>>(_uow.GetRepository<CompanyRoute>().GetAll().ToList());
+            return _mapper.Map<List<CompanyRouteDto>>(_uow.GetRepository<CompanyRoute>().GetAll().ToList());
         }
 
-        public CompanyRouteDTO getCompanyRoute(Guid companyRouteId)
+        public CompanyRouteDto getCompanyRoute(Guid companyRouteId)
         {
             var city = _uow.GetRepository<CompanyRoute>().GetById(companyRouteId);
-            return _mapper.Map<CompanyRouteDTO>(city);
+            return _mapper.Map<CompanyRouteDto>(city);
         }
 
-        public CompanyRouteDTO updateCompanyRoute(CompanyRouteDTO companyRoute)
+        public CompanyRouteDto updateCompanyRoute(CompanyRouteDto companyRoute)
         {
             var upCity = _uow.GetRepository<CompanyRoute>().GetById(companyRoute.Id);
             upCity = _mapper.Map<CompanyRoute>(companyRoute);
             _uow.GetRepository<CompanyRoute>().Update(upCity);
             _uow.SaveChanges();
-            return _mapper.Map<CompanyRouteDTO>(upCity);
+            return _mapper.Map<CompanyRouteDto>(upCity);
         }
     }
 }

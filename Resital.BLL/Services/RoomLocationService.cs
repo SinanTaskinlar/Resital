@@ -20,26 +20,26 @@ namespace Resital.BLL.Services
             this._uow = uow;
         }
 
-        public List<RoomLocationDTO> getAllRoomLocations()
+        public List<RoomLocationDto> getAllRoomLocations()
         {
             var room = _uow.GetRepository<RoomLocation>().GetAll().ToList();
-            return _mapper.Map<List<RoomLocationDTO>>(room);
+            return _mapper.Map<List<RoomLocationDto>>(room);
         }
 
-        public RoomLocationDTO getRoomLocation(Guid roomLocationId)
+        public RoomLocationDto getRoomLocation(Guid roomLocationId)
         {
             var room = _uow.GetRepository<RoomLocation>().GetById(roomLocationId);
-            return _mapper.Map<RoomLocationDTO>(room);
+            return _mapper.Map<RoomLocationDto>(room);
         }
 
-        public RoomLocationDTO addRoomLocation(RoomLocationDTO roomLocation)
+        public RoomLocationDto addRoomLocation(RoomLocationDto roomLocation)
         {
             if (!_uow.GetRepository<RoomLocation>().GetAll().Any(z => z.Name == roomLocation.Name))
             {
                 var room = _mapper.Map<City>(roomLocation);
                 _uow.GetRepository<City>().Insert(room);
                 _uow.SaveChanges();
-                return _mapper.Map<RoomLocationDTO>(room);
+                return _mapper.Map<RoomLocationDto>(room);
             }
             else
             {
@@ -47,13 +47,13 @@ namespace Resital.BLL.Services
             }
         }
 
-        public RoomLocationDTO updateRoomLocation(RoomLocationDTO roomLocation)
+        public RoomLocationDto updateRoomLocation(RoomLocationDto roomLocation)
         {
             var room = _uow.GetRepository<RoomLocation>().GetById(roomLocation.Id);
             room = _mapper.Map<RoomLocation>(roomLocation);
             _uow.GetRepository<RoomLocation>().Update(room);
             _uow.SaveChanges();
-            return _mapper.Map<RoomLocationDTO>(room);
+            return _mapper.Map<RoomLocationDto>(room);
         }
 
         public bool deleteRoomLocation(Guid roomLocationId)

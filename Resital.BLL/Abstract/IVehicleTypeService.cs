@@ -6,16 +6,16 @@ namespace Resital.BLL.Abstract
 {
     public interface IVehicleTypeService : IServiceBase
     {
-        List<VehicleTypeDTO> getAllVehicleTypes();
+        List<VehicleTypeDto> getAllVehicleTypes();
 
-        VehicleTypeDTO getVehicleType(int VehicleTypeId);
+        VehicleTypeDto getVehicleType(int vehicleTypeId);
 
-        List<VehicleTypeDTO> getVehicleTypeName(string VehicleTypeName);
+        List<VehicleTypeDto> getVehicleTypeName(string vehicleTypeName);
 
-        VehicleTypeDTO addVehicleType(VehicleTypeDTO VehicleType);
+        VehicleTypeDto addVehicleType(VehicleTypeDto vehicleType);
 
-        VehicleTypeDTO updateVehicleType(VehicleTypeDTO VehicleType);
+        VehicleTypeDto updateVehicleType(VehicleTypeDto vehicleType);
 
-        bool deleteVehicleType(int VehicleTypeId);
+        bool deleteVehicleType(int vehicleTypeId);
     }
 }

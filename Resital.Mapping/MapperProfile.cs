@@ -9,30 +9,30 @@ namespace Resital.Mapping
         public MapperProfile()
         {
             //entitytodto
-            CreateMap<City, CityDTO>();
-            CreateMap<Company, CompanyDTO>();
-            CreateMap<CompanyRoute, CompanyRouteDTO>();
-            CreateMap<CompanyType, CompanyTypeDTO>();
-            CreateMap<Guide, GuideDTO>();
-            CreateMap<Room, RoomDTO>();
-            CreateMap<RoomLocation, RoomLocationDTO>();
-            CreateMap<RoomType, RoomTypeDTO>();
-            CreateMap<Route, RouteDTO>();
-            CreateMap<Vehicle, VehicleDTO>();
-            CreateMap<VehicleType, VehicleTypeDTO>();
+            CreateMap<City, CityDto>();
+            CreateMap<Company, CompanyDto>();
+            CreateMap<CompanyRoute, CompanyRouteDto>();
+            CreateMap<CompanyType, CompanyTypeDto>();
+            CreateMap<Guide, GuideDto>();
+            CreateMap<Room, RoomDto>();
+            CreateMap<RoomLocation, RoomLocationDto>();
+            CreateMap<RoomType, RoomTypeDto>();
+            CreateMap<Route, RouteDto>();
+            CreateMap<Vehicle, VehicleDto>();
+            CreateMap<VehicleType, VehicleTypeDto>();
 
             //dtotoentity
-            CreateMap<CityDTO, City>();
-            CreateMap<CompanyDTO, Company>();
-            CreateMap<CompanyRouteDTO, CompanyRoute>();
-            CreateMap<CompanyTypeDTO, CompanyType>();
-            CreateMap<GuideDTO, Guide>();
-            CreateMap<RoomDTO, Room>();
-            CreateMap<RoomLocationDTO, RoomLocation>();
-            CreateMap<RoomTypeDTO, RoomType>();
-            CreateMap<RouteDTO, Route>();
-            CreateMap<VehicleDTO, Vehicle>();
-            CreateMap<VehicleTypeDTO, VehicleType>();
+            CreateMap<CityDto, City>();
+            CreateMap<CompanyDto, Company>();
+            CreateMap<CompanyRouteDto, CompanyRoute>();
+            CreateMap<CompanyTypeDto, CompanyType>();
+            CreateMap<GuideDto, Guide>();
+            CreateMap<RoomDto, Room>();
+            CreateMap<RoomLocationDto, RoomLocation>();
+            CreateMap<RoomTypeDto, RoomType>();
+            CreateMap<RouteDto, Route>();
+            CreateMap<VehicleDto, Vehicle>();
+            CreateMap<VehicleTypeDto, VehicleType>();
         }
     }
 }

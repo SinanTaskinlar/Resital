@@ -20,19 +20,19 @@ namespace Resital.BLL.Services
             this._uow = uow;
         }
 
-        public List<RoomDTO> getAllRooms()
+        public List<RoomDto> getAllRooms()
         {
             var room = _uow.GetRepository<Room>().GetAll().ToList();
-            return _mapper.Map<List<RoomDTO>>(room);
+            return _mapper.Map<List<RoomDto>>(room);
         }
 
-        public RoomDTO getRoom(Guid roomId)
+        public RoomDto getRoom(Guid roomId)
         {
             var room = _uow.GetRepository<Room>().GetById(roomId);
-            return _mapper.Map<RoomDTO>(room);
+            return _mapper.Map<RoomDto>(room);
         }
 
-        public RoomDTO addRoom(RoomDTO roomDto)
+        public RoomDto addRoom(RoomDto roomDto)
         {
             roomDto.Company = _uow.GetRepository<Company>().GetById(roomDto.Company.Id);
             roomDto.RoomLocation = _uow.GetRepository<RoomLocation>().GetById(roomDto.RoomLocation.Id);
@@ -40,16 +40,16 @@ namespace Resital.BLL.Services
             var room = _mapper.Map<Room>(roomDto);
             _uow.GetRepository<Room>().Insert(room);
             _uow.SaveChanges();
-            return _mapper.Map<RoomDTO>(room);
+            return _mapper.Map<RoomDto>(room);
         }
 
-        public RoomDTO updateRoom(RoomDTO roomDto)
+        public RoomDto updateRoom(RoomDto roomDto)
         {
             var room = _uow.GetRepository<Room>().GetById(roomDto.Id);
             room = _mapper.Map<Room>(roomDto);
             _uow.GetRepository<Room>().Update(room);
             _uow.SaveChanges();
-            return _mapper.Map<RoomDTO>(room);
+            return _mapper.Map<RoomDto>(room);
         }
 
         public bool deleteRoom(Guid roomId)

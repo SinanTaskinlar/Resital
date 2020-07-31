@@ -7,13 +7,13 @@ namespace Resital.BLL.Abstract
 {
     public interface ICityService : IServiceBase
     {
-        List<CityDTO> getAllCities();
+        List<CityDto> getAllCities();
 
-        CityDTO getCity(Guid cityId);
+        CityDto getCity(Guid cityId);
 
-        CityDTO addCity(CityDTO city);
+        CityDto addCity(CityDto city);
 
-        CityDTO updateCity(CityDTO city);
+        CityDto updateCity(CityDto city);
 
         bool deleteCity(Guid cityId);
     }

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Resital.BLL.Abstract;
 using Resital.DTO;
+using Resital.WebUI.Models;
 
 namespace Resital.WebUI.Controllers
 {
@@ -23,7 +21,7 @@ namespace Resital.WebUI.Controllers
         // GET: CompanyController
         public ActionResult Index(string sehir)
         {
-            List<CompanyDTO> vmComp = null;
+            List<CompanyDto> vmComp = null;
             if (sehir == null)
             {
                 vmComp = _companyService.getAllCompanies(/*sehir*/); //override method, liste döndüren hali yazılacak.

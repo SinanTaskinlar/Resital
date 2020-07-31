@@ -7,13 +7,13 @@ namespace Resital.BLL.Abstract
 {
     public interface IVehicleService : IServiceBase
     {
-        List<VehicleDTO> getAllVehicles();
+        List<VehicleDto> getAllVehicles();
 
-        VehicleDTO getVehicle(Guid vehicleId);
+        VehicleDto getVehicle(Guid vehicleId);
 
-        VehicleDTO addVehicle(VehicleDTO vehicle);
+        VehicleDto addVehicle(VehicleDto vehicle);
 
-        VehicleDTO updateVehicle(VehicleDTO vehicle);
+        VehicleDto updateVehicle(VehicleDto vehicle);
 
         bool deleteVehicle(Guid vehicleId);
     }

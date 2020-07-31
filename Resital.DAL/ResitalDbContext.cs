@@ -4,7 +4,7 @@ using System;
 
 namespace Resital.DAL
 {
-    public class ResitalDbContext : DbContext
+    public sealed class ResitalDbContext : DbContext
     {
         public ResitalDbContext()
         {

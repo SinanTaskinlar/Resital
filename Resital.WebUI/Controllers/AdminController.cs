@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Resital.BLL.Abstract;
+using Resital.DTO;
+using Resital.WebUI.Models;
 
 namespace Resital.WebUI.Controllers
 {
@@ -13,12 +13,15 @@ namespace Resital.WebUI.Controllers
         private readonly ICompanyService _companyService;
         private readonly IRoomService _roomService;
         private readonly IVehicleService _vehicleService;
+        private readonly ICompanyTypeService _companyTypeService;
 
-        public AdminController(ICompanyService companyService, IRoomService roomService, IVehicleService vehicleService)
+        public AdminController(ICompanyService companyService, IRoomService roomService, IVehicleService vehicleService, ICompanyTypeService companyTypeService)
         {
             _companyService = companyService;
             _roomService = roomService;
             _vehicleService = vehicleService;
+            _companyTypeService = companyTypeService;
+
         }
         // GET: AdminController
         public ActionResult Index()
@@ -41,9 +44,12 @@ namespace Resital.WebUI.Controllers
         }
 
         // GET: AdminController/Create
+        [HttpGet]
         public ActionResult CompanyCreate()
         {
-            return View();
+            CompanyViewModel comp = new CompanyViewModel();
+            var a = _companyTypeService.getAllCompanyTypes();
+            return View(a);
         }
 
         // POST: AdminController/Create
@@ -51,8 +57,15 @@ namespace Resital.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CompanyCreate(IFormCollection collection)
         {
+            CompanyDto dto = new CompanyDto();
+            dto.Name = collection["Name"];
+            dto.Address = collection["Address"];
+            dto.Note = collection["Note"];
+            dto.CompanyTypeId = Guid.Parse(collection["CompanyTypeId"]);
+
             try
             {
+                _companyService.addCompany(dto);
                 return RedirectToAction(nameof(Index));
             }
             catch

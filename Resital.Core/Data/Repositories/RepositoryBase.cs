@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Resital.Core.Data.Repositories
 {
-    public class RepositoryBase<T> : IRepository<T> where T : Entity<Guid>
+    public sealed class RepositoryBase<T> : IRepository<T> where T : Entity<Guid>
     {
         private readonly DbContext _context;
         private readonly DbSet<T> _entities;
@@ -39,7 +39,7 @@ namespace Resital.Core.Data.Repositories
 
         public void Delete(Guid id)
         {
-            if (id == default) throw new ArgumentNullException("entity");
+            if (id == default) throw new ArgumentNullException("id");
             {
                 T entity = _entities.SingleOrDefault(s => s.Id == id);
                 _entities.Remove(entity);
@@ -77,10 +77,10 @@ namespace Resital.Core.Data.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            return _entities.AsEnumerable();
+            return _entities.AsQueryable();
         }
 
-        protected virtual IQueryable<T> GetQueryable(
+        private IQueryable<T> GetQueryable(
             Expression<Func<T, bool>> filter = null,
             Expression<Func<T, object>> include = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,

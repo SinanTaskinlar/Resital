@@ -20,7 +20,7 @@ namespace Resital.API.Controllers
 
         // GET: api/<CompanyTypeController>
         [HttpGet]
-        public List<CompanyTypeDTO> Get()
+        public List<CompanyTypeDto> Get()
         {
             return _companyTypeService.getAllCompanyTypes();
         }

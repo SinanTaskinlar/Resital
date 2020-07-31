@@ -7,13 +7,13 @@ namespace Resital.BLL.Abstract
 {
     public interface IGuideService : IServiceBase
     {
-        List<GuideDTO> getAllGuides();
+        List<GuideDto> getAllGuides();
 
-        GuideDTO getGuide(Guid guideId);
+        GuideDto getGuide(Guid guideId);
 
-        GuideDTO addGuide(GuideDTO guide);
+        GuideDto addGuide(GuideDto guide);
 
-        GuideDTO updateGuide(GuideDTO guide);
+        GuideDto updateGuide(GuideDto guide);
 
         bool deleteGuide(Guid guideId);
     }

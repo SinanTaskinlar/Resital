@@ -7,13 +7,13 @@ namespace Resital.BLL.Abstract
 {
     public interface IRoomLocationService : IServiceBase
     {
-        List<RoomLocationDTO> getAllRoomLocations();
+        List<RoomLocationDto> getAllRoomLocations();
 
-        RoomLocationDTO getRoomLocation(Guid roomLocationId);
+        RoomLocationDto getRoomLocation(Guid roomLocationId);
 
-        RoomLocationDTO addRoomLocation(RoomLocationDTO roomLocation);
+        RoomLocationDto addRoomLocation(RoomLocationDto roomLocation);
 
-        RoomLocationDTO updateRoomLocation(RoomLocationDTO roomLocation);
+        RoomLocationDto updateRoomLocation(RoomLocationDto roomLocation);
 
         bool deleteRoomLocation(Guid roomLocationId);
     }

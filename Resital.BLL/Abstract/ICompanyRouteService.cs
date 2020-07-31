@@ -7,13 +7,13 @@ namespace Resital.BLL.Abstract
 {
     public interface ICompanyRouteService : IServiceBase
     {
-        List<CompanyRouteDTO> getAllCompanyRoutes();
+        List<CompanyRouteDto> getAllCompanyRoutes();
 
-        CompanyRouteDTO getCompanyRoute(Guid companyRouteId);
+        CompanyRouteDto getCompanyRoute(Guid companyRouteId);
 
-        CompanyRouteDTO addCompanyRoute(CompanyRouteDTO companyRoute);
+        CompanyRouteDto addCompanyRoute(CompanyRouteDto companyRoute);
 
-        CompanyRouteDTO updateCompanyRoute(CompanyRouteDTO companyRoute);
+        CompanyRouteDto updateCompanyRoute(CompanyRouteDto companyRoute);
 
         bool deleteCompanyRoute(Guid companyRouteId);
     }

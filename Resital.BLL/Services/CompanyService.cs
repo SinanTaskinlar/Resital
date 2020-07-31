@@ -20,28 +20,27 @@ namespace Resital.BLL.Services
             this._mapper = mapper;
         }
 
-        public List<CompanyDTO> getAllCompanies()
+        public List<CompanyDto> getAllCompanies()
         {
             var compList = _uow.GetRepository<Company>().GetAll().ToList();
-            return _mapper.Map<List<CompanyDTO>>(compList);
+            return _mapper.Map<List<CompanyDto>>(compList);
         }
         //  18fd0bac-5c0a-47ab-6c7c-08d83221d38f
-        public CompanyDTO getCompany(Guid companyId)
+        public CompanyDto getCompany(Guid companyId)
         {
             //var company = _uow.GetRepository<Company>().Get(z => z.Id == companyId, z => z.Rooms);
             var company = _uow.GetRepository<Company>().GetById(z => z.Id == companyId, z => z.Rooms);
-            Company x = company.FirstOrDefault();
-            return _mapper.Map<CompanyDTO>(company.FirstOrDefault());
+            return _mapper.Map<CompanyDto>(company.FirstOrDefault());
         }
 
-        public CompanyDTO addCompany(CompanyDTO companyDto)
+        public CompanyDto addCompany(CompanyDto companyDto)
         {
             if (companyDto.Name != null)
             {
                 var company = _mapper.Map<Company>(companyDto);
                 _uow.GetRepository<Company>().Insert(company);
                 _uow.SaveChanges();
-                return _mapper.Map<CompanyDTO>(company);
+                return _mapper.Map<CompanyDto>(company);
             }
             else
             {
@@ -49,20 +48,20 @@ namespace Resital.BLL.Services
             }
         }
 
-        public CompanyDTO updateCompany(CompanyDTO company)
+        public CompanyDto updateCompany(CompanyDto company)
         {
             var upCompany = _uow.GetRepository<Company>().GetById(company.Id);
             upCompany = _mapper.Map<Company>(company);
             _uow.GetRepository<Company>().Update(upCompany);
             _uow.SaveChanges();
-            return _mapper.Map<CompanyDTO>(upCompany);
+            return _mapper.Map<CompanyDto>(upCompany);
         }
 
         public bool deleteCompany(Guid companyId)
         {
             try
             {
-                var Company = _uow.GetRepository<Company>().GetById(companyId);
+                var company = _uow.GetRepository<Company>().GetById(companyId);
                 _uow.GetRepository<Company>().Delete(companyId);
                 _uow.SaveChanges();
                 return true;

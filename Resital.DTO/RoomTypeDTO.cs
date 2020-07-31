@@ -2,7 +2,7 @@
 
 namespace Resital.DTO
 {
-    public class RoomTypeDTO
+    public class RoomTypeDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
