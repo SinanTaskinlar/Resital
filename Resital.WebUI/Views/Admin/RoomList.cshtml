@@ -1,4 +1,6 @@
-﻿@model List<Resital.DTO.CompanyDto>
+﻿
+
+@model List<Resital.DTO.RoomDto>
 @{
     Layout = $"~/Views/Shared/_AdminLayout.cshtml";
 }
@@ -6,7 +8,7 @@
     <h3 class="text-dark mb-4">Companies</h3>
     <div class="card shadow">
         <div class="card-header py-3">
-            <p class="text-primary m-0 font-weight-bold">Firma Bilgleri</p>
+            <p class="text-primary m-0 font-weight-bold">Oda Bilgleri</p>
         </div>
         <div class="card-body">
             <div class="row">
@@ -21,38 +23,36 @@
                 <table class="table my-0" id="dataTable">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Note</th>
-                            <th>Oda Sayısı</th>
-                            <th>Start date</th>
+                            <th>Otel Adı</th>
+                            <th>Oda Lokasyonu</th>
+                            <th>Oda Tipi</th>
+                            <th>Oda Fiyat</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var company in Model)
                         {
-                        <tr>
-                            <td><img class="rounded-circle mr-2" width="30" height="30" src="avatars/avatar2.jpeg" /><a asp-controller="Company" asp-action="Details/@company.CompanyTypeId">@company.Name</a></td>
-                            <td>@company.Address</td>
-                            <td>@company.Note</td>
-                            <td>@company.Rooms.Count</td>
-                            <td>
-                                <a asp-controller="Admin" asp-action="CompanyEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Primary link</a>
-                                <form method="post" action="/Admin/CompanyDelete/">
+                            <tr>
+                                <td><img class="rounded-circle mr-2" width="30" height="30" src="avatars/avatar2.jpeg" /><a asp-controller="Company" asp-action="Details/@company.Company.Id">@company.Company.Name</a></td>
+                                <td>@company.RoomLocation.Name</td>
+                                <td>@company.RoomType.Name</td>
+                                <td>
+                                    <a asp-controller="Admin" asp-action="RoomEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Primary link</a>
+                                    <form method="post" action="/Admin/CompanyDelete/">
 
-                                    <input type="hidden" name="Id" value="@company.Id"/>
-                                    <button type="submit" class="btn btn-danger btn-sm">Sil</button>
-                                </form>
-                            </td>
-                        </tr>
+                                        <input type="hidden" name="Id" value="@company.Id" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                                    </form>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><strong>Name</strong></td>
-                            <td><strong>Position</strong></td>
-                            <td><strong>Office</strong></td>
-                            <td><strong>Age</strong></td>
+                            <td><strong>Otel Adı</strong></td>
+                            <td><strong>Oda Lokasyonu</strong></td>
+                            <td><strong>Oda Tipi</strong></td>
+                            <td><strong>Oda Fiyat</strong></td>
                             <td><strong>Start date</strong></td>
                         </tr>
                     </tfoot>

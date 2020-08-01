@@ -1,0 +1,47 @@
+﻿@using Resital.DTO
+@model RoomViewModel
+@{
+    Layout = $"~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    RoomDto room = new RoomDto();
+}
+<form method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputState">Company Type</label>
+            <select id="inputState" name="Comp" class="form-control">
+                <option selected>Choose...</option>
+                @foreach (var a in Model.Companies)
+                {
+                    <option  name="Comp" value="@a.Id">@a.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <div class="form-group col-md-6">
+            <label for="inputState">Company Type</label>
+            <select id="inputState" name="Loc" class="form-control">
+                <option selected>Choose...</option>
+                @foreach (var a in Model.Locations)
+                {
+                    <option name="Loc" value="@a.Id">@a.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputState">Company Type</label>
+            <select id="inputState" name="Type" class="form-control">
+                <option selected>Choose...</option>
+                @foreach (var a in Model.Types)
+                {
+                    <option name="Type" value="@a.Id">@a.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

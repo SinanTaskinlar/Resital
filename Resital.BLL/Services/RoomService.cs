@@ -34,9 +34,9 @@ namespace Resital.BLL.Services
 
         public RoomDto addRoom(RoomDto roomDto)
         {
-            roomDto.Company = _uow.GetRepository<Company>().GetById(roomDto.Company.Id);
-            roomDto.RoomLocation = _uow.GetRepository<RoomLocation>().GetById(roomDto.RoomLocation.Id);
-            roomDto.RoomType = _uow.GetRepository<RoomType>().GetById(roomDto.RoomType.Id);
+            roomDto.Company = _uow.GetRepository<Company>().GetById(roomDto.CompanyId);
+            roomDto.RoomLocation = _uow.GetRepository<RoomLocation>().GetById(roomDto.RoomLocationId);
+            roomDto.RoomType = _uow.GetRepository<RoomType>().GetById(roomDto.RoomTypeId);
             var room = _mapper.Map<Room>(roomDto);
             _uow.GetRepository<Room>().Insert(room);
             _uow.SaveChanges();
