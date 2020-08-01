@@ -8,7 +8,7 @@ namespace Resital.DAL
     {
         public ResitalDbContext()
         {
-            this.ChangeTracker.LazyLoadingEnabled = true;
+            this.ChangeTracker.LazyLoadingEnabled = false;
         }
 
         public DbSet<City> Cities { get; set; }
