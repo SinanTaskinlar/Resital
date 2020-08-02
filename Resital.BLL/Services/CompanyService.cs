@@ -25,6 +25,7 @@ namespace Resital.BLL.Services
             var compList = _uow.GetRepository<Company>().GetAll().ToList();
             return _mapper.Map<List<CompanyDto>>(compList);
         }
+
         //  18fd0bac-5c0a-47ab-6c7c-08d83221d38f
         public CompanyDto getCompany(Guid companyId)
         {
@@ -73,6 +74,7 @@ namespace Resital.BLL.Services
         }
     }
 }
+
 //{
 //"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 //"name": "string",

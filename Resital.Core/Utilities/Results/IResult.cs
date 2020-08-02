@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Resital.Core.Utilities.Results
+﻿namespace Resital.Core.Utilities.Results
 {
     public interface IResult
     {

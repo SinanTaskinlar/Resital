@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Resital.BLL.Abstract;
 using Resital.DTO;
-using Resital.WebUI.Models;
+using System.Collections.Generic;
 
 namespace Resital.WebUI.Controllers
 {
@@ -18,6 +17,7 @@ namespace Resital.WebUI.Controllers
             _logger = logger;
             _companyService = companyService;
         }
+
         // GET: CompanyController
         public ActionResult Index(string sehir)
         {

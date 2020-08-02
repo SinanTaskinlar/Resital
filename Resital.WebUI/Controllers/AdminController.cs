@@ -1,18 +1,16 @@
-﻿using System;
-using System.Linq;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Resital.BLL.Abstract;
 using Resital.DTO;
 using Resital.WebUI.Models;
+using System;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Resital.WebUI.Controllers
 {
     public class AdminController : Controller
     {
-
-#region Cons
+        #region Cons
 
         private readonly ICompanyService _companyService;
         private readonly IRoomService _roomService;
@@ -22,9 +20,9 @@ namespace Resital.WebUI.Controllers
         private readonly IRoomTypeService _roomTypeService;
 
         public AdminController(
-            ICompanyService companyService, 
-            IRoomService roomService, 
-            IVehicleService vehicleService, 
+            ICompanyService companyService,
+            IRoomService roomService,
+            IVehicleService vehicleService,
             ICompanyTypeService companyTypeService,
             IRoomLocationService roomLocationService,
             IRoomTypeService roomTypeService
@@ -36,9 +34,10 @@ namespace Resital.WebUI.Controllers
             _companyTypeService = companyTypeService;
             _roomLocationService = roomLocationService;
             _roomTypeService = roomTypeService;
-
         }
-#endregion
+
+        #endregion Cons
+
         // GET: AdminController
         public ActionResult Index()
         {
@@ -54,9 +53,10 @@ namespace Resital.WebUI.Controllers
         }
 
         // GET: Admin/CompanyDetails/5
-        public ActionResult CompanyDetails(int id)
+        public ActionResult CompanyDetails(Guid Id)
         {
-            return View();
+            var a = _companyService.getCompany(Id);
+            return View(a);
         }
 
         // GET: Admin/CompanyCreate
@@ -91,19 +91,28 @@ namespace Resital.WebUI.Controllers
         }
 
         // GET: AdminController/CompanyEdit/5
-        public ActionResult CompanyEdit(int id)
+        public ActionResult CompanyEdit(Guid id)
         {
-            return View();
+            var a = _companyService.getCompany(id);
+            return View(a);
         }
 
         // POST: AdminController/CompanyEdit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CompanyEdit(int id, IFormCollection collection)
+        public ActionResult CompanyEdit(IFormCollection collection)
         {
+            var a = _companyService.getCompany(Guid.Parse(collection["Id"]));
+            a.Name = collection["Name"];
+            a.Address = collection["Address"];
+            a.Note = collection["Note"];
+            a.CompanyTypeId = Guid.Parse(collection["CompanyTypeId"]);
+
+            var b = _companyService.updateCompany(a);
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("CompanyList");
             }
             catch
             {
@@ -128,8 +137,7 @@ namespace Resital.WebUI.Controllers
             }
         }
 
-
-        #endregion
+        #endregion Company
 
         #region Room
 
@@ -138,6 +146,7 @@ namespace Resital.WebUI.Controllers
             var rooms = _roomService.getAllRooms();
             return View(rooms);
         }
+
         // GET: AdminController/Details/5
         public ActionResult RoomDetails(int id)
         {
@@ -218,7 +227,7 @@ namespace Resital.WebUI.Controllers
             }
         }
 
-        #endregion
+        #endregion Room
 
         #region Vehicle
 
@@ -297,7 +306,6 @@ namespace Resital.WebUI.Controllers
             }
         }
 
-        #endregion
-
+        #endregion Vehicle
     }
 }

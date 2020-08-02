@@ -31,19 +31,19 @@
                     <tbody>
                         @foreach (var company in Model)
                         {
-                        <tr>
-                            <td><img class="rounded-circle mr-2" width="30" height="30" src="avatars/avatar2.jpeg" /><a asp-controller="Company" asp-action="Details/@company.CompanyTypeId">@company.Name</a></td>
-                            <td>@company.Address</td>
-                            <td>@company.Note</td>
-                            <td>@company.Rooms.Count</td>
-                            <td>
-                                <form method="post" action="/Admin/CompanyDelete/">
-                                    <a asp-controller="Admin" asp-action="CompanyEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Güncelle</a>
-                                    <input type="hidden" name="Id" value="@company.Id" />
-                                    <button type="submit" class="btn btn-danger btn-sm">Sil</button>
-                                </form>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpg" /><a asp-controller="Company" asp-action="Details/@company.CompanyTypeId">@company.Name</a></td>
+                                <td>@company.Address</td>
+                                <td>@company.Note</td>
+                                <td>@company.Rooms.Count</td>
+                                <td>
+                                    <form method="post" action="/Admin/CompanyDelete/">
+                                        <a asp-controller="Admin" asp-action="CompanyEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Güncelle</a>
+                                        <input type="hidden" name="Id" value="@company.Id" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                                    </form>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                     <tfoot>

@@ -44,7 +44,7 @@ namespace Resital.DAL
 
             modelBuilder.Entity<Vehicle>()
                 .HasOne(c => c.Company)
-                .WithMany(c =>  c.Vehicles);
+                .WithMany(c => c.Vehicles);
 
             modelBuilder.Entity<RoomLocation>()
                 .HasMany(c => c.Rooms)

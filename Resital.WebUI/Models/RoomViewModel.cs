@@ -1,9 +1,5 @@
-﻿using System;
+﻿using Resital.DTO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Threading.Tasks;
-using Resital.DTO;
 
 namespace Resital.WebUI.Models
 {

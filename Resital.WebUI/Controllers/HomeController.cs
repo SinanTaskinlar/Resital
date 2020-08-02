@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Resital.BLL.Abstract;
 using Resital.WebUI.Models;
 using System.Diagnostics;
-using Resital.BLL.Abstract;
 
 namespace Resital.WebUI.Controllers
 {
