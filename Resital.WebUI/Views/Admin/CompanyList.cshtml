@@ -37,10 +37,9 @@
                             <td>@company.Note</td>
                             <td>@company.Rooms.Count</td>
                             <td>
-                                <a asp-controller="Admin" asp-action="CompanyEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Primary link</a>
                                 <form method="post" action="/Admin/CompanyDelete/">
-
-                                    <input type="hidden" name="Id" value="@company.Id"/>
+                                    <a asp-controller="Admin" asp-action="CompanyEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Güncelle</a>
+                                    <input type="hidden" name="Id" value="@company.Id" />
                                     <button type="submit" class="btn btn-danger btn-sm">Sil</button>
                                 </form>
                             </td>

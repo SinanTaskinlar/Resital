@@ -1,6 +1,4 @@
-﻿
-
-@model List<Resital.DTO.RoomDto>
+﻿@model List<Resital.DTO.RoomDto>
 @{
     Layout = $"~/Views/Shared/_AdminLayout.cshtml";
 }
@@ -37,9 +35,8 @@
                                 <td>@company.RoomLocation.Name</td>
                                 <td>@company.RoomType.Name</td>
                                 <td>
-                                    <a asp-controller="Admin" asp-action="RoomEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Primary link</a>
                                     <form method="post" action="/Admin/CompanyDelete/">
-
+                                        <a asp-controller="Admin" asp-action="RoomEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Güncelle</a>
                                         <input type="hidden" name="Id" value="@company.Id" />
                                         <button type="submit" class="btn btn-danger btn-sm">Sil</button>
                                     </form>
