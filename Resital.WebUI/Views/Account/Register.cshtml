@@ -1,0 +1,44 @@
+﻿@model Web.Models.RegisterModel
+
+<main class="page registration-page">
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Kayıt Ol</h2>
+            </div>
+            <form asp-controller="Account" asp-action="Register">
+                <div asp-validation-summary="All" class="form-group">
+                    <label asp-for="FirstName">Name</label>
+                    <input class="form-control item" asp-for="FirstName">
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName">LastName</label>
+                    <input class="form-control item" asp-for="LastName">
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Username">Username</label>
+                    <input class="form-control item" asp-for="Username">
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password">Password</label>
+                    <input class="form-control item" asp-for="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RePassword">RePassword</label>
+                    <input class="form-control item" asp-for="RePassword">
+                    <span asp-validation-for="RePassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Mail</label>
+                    <input class="form-control item" asp-for="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <button class="btn btn-primary btn-block" type="submit">Kayıt Ol</button>
+            </form>
+        </div>
+    </section>
+</main>

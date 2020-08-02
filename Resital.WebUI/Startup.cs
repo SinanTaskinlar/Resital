@@ -43,6 +43,7 @@ namespace Resital.WebUI
                 options.Password.RequiredLength = 8;
                 options.Password.RequireLowercase = true;
                 options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = false;
 
                 //Lockout
                 options.Lockout.MaxFailedAccessAttempts = 5;

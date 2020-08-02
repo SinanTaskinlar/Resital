@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Resital.DAL.Migrations
+namespace DataAccess.Migrations
 {
     public partial class init : Migration
     {
@@ -236,29 +236,29 @@ namespace Resital.DAL.Migrations
                 columns: new[] { "Id", "CreatedAt", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("162c75dd-012b-42e2-8035-0bb5ba77b604"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5260), "İstanbul" },
-                    { new Guid("fef327b9-ad90-4d20-97a1-5a59023fbae7"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5793), "Yozgat" },
-                    { new Guid("e0250938-6c1c-4954-a830-7aaf0fa973c8"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5791), "Trabzon" },
-                    { new Guid("dedf4022-33ac-4b0e-a849-e490892dfc4e"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5786), "Şanlıurfa" },
-                    { new Guid("ce7437b0-9594-4c82-9a91-3305d2e2948c"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5781), "Sivas" },
-                    { new Guid("4e3637c8-244a-4870-bfc7-0efdc9daa340"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5778), "Sinop" },
-                    { new Guid("18b493ea-a312-4d2c-8db8-fc356ee444ef"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5776), "Nevşehir" },
-                    { new Guid("719f0beb-0c97-4bed-b9b1-fe7f9c24d32a"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5774), "Muğla" },
-                    { new Guid("385e48b2-25f9-452e-8c31-6ebc6f785ad4"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5772), "Kütahya" },
-                    { new Guid("dc9d65f9-a817-47f4-9cca-af508f04fb8f"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5770), "Kastamonu" },
-                    { new Guid("7183d86b-99a7-48a9-802c-4eb77c6a20f6"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5769), "Edirne" },
-                    { new Guid("b8aa3cd8-ae02-4ab1-a06a-e19f0a9c2ad0"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5789), "Tokat" },
-                    { new Guid("117b8984-cb6e-4ff9-be1a-78e8be82a6bb"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5762), "Çanakkale" },
-                    { new Guid("b643f488-77ef-4ed4-a433-751ae2a51cee"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5760), "Bursa" },
-                    { new Guid("a6a24f85-77df-4cf5-a83c-3dcace9ca079"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5759), "Balıkesir" },
-                    { new Guid("62ee7fcc-3c4f-4334-abd2-506c55576e77"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5757), "Artvin" },
-                    { new Guid("d1bb95e9-8590-4cf7-ae54-ee891355c400"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5755), "Afyonkarahisar " },
-                    { new Guid("83685720-a498-4155-953d-33ddca8a27e7"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5753), "Eskişehir" },
-                    { new Guid("15ca0b97-9deb-49e9-b3c2-765d7c868eb6"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5751), "Adana" },
-                    { new Guid("aeb91815-8726-4f67-b01b-781f2d22a9a9"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5749), "Antalya" },
-                    { new Guid("dac56eb4-2476-4c21-9d8f-95a2df6b7d70"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5742), "İzmir" },
-                    { new Guid("19f85b33-6b07-4fa9-99df-da4a926afcb3"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5718), "Ankara" },
-                    { new Guid("75587eae-db4b-49c8-9392-81eec55df539"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(5767), "Diyarbakır" }
+                    { new Guid("e07d3455-ea3b-453e-9440-7d0c0b97a6a0"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5485), "İstanbul" },
+                    { new Guid("a0eb6d06-516c-4f50-9df7-7adf0cfa7d5a"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5845), "Yozgat" },
+                    { new Guid("6c9acea1-6cd5-49b9-ba9c-001c4d402731"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5843), "Trabzon" },
+                    { new Guid("e71ca81b-e1c7-4478-aa14-096fe92e33be"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5839), "Şanlıurfa" },
+                    { new Guid("b6af9d71-03b7-426f-82cc-7af405461e99"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5838), "Sivas" },
+                    { new Guid("64bf4d54-3aeb-4c4e-b463-020ac82d846d"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5836), "Sinop" },
+                    { new Guid("e71fc392-c629-46e1-95e3-acb10d608ea9"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5834), "Nevşehir" },
+                    { new Guid("fa43fbf3-2afe-453c-bf0e-4ddbe873ac97"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5832), "Muğla" },
+                    { new Guid("10e9d10d-673b-429e-9435-5bb739953355"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5828), "Kütahya" },
+                    { new Guid("e7a974dc-a454-4175-9c41-2663b993bb2e"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5826), "Kastamonu" },
+                    { new Guid("6e4e252f-cf1f-46ea-b0d5-5394e5e0eab9"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5824), "Edirne" },
+                    { new Guid("c65c6047-a883-4afb-be5a-1dc08dcbf2ce"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5841), "Tokat" },
+                    { new Guid("f04ecb88-edeb-4d05-81bd-8c51b5eb170e"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5820), "Çanakkale" },
+                    { new Guid("6c8aed9d-1011-4941-8142-4dc482215fc4"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5819), "Bursa" },
+                    { new Guid("77d9eae3-47f7-442c-a306-e2d3a0fc2213"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5817), "Balıkesir" },
+                    { new Guid("39913100-ad70-4038-9fb9-ab28630b463c"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5815), "Artvin" },
+                    { new Guid("45f579c9-e6b9-4404-aa79-4949f753dab3"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5808), "Afyonkarahisar " },
+                    { new Guid("e2871ac4-13e5-425f-a562-5ab66971652c"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5806), "Eskişehir" },
+                    { new Guid("2a6cceb1-69b2-4803-97f6-fa6fdfccd474"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5804), "Adana" },
+                    { new Guid("a1708eaa-69f8-4514-9f0f-8902f91d892a"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5802), "Antalya" },
+                    { new Guid("e0ecaf1a-de89-4ccc-ab58-b63404f6118b"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5800), "İzmir" },
+                    { new Guid("a9c0c698-1028-4a5d-9a97-ff803910e298"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5775), "Ankara" },
+                    { new Guid("ac1296be-c388-4cc4-9ec5-f76d84636b98"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(5822), "Diyarbakır" }
                 });
 
             migrationBuilder.InsertData(
@@ -266,12 +266,12 @@ namespace Resital.DAL.Migrations
                 columns: new[] { "Id", "CreatedAt", "TypeName" },
                 values: new object[,]
                 {
-                    { new Guid("6089b12d-669b-4b8d-a164-64f2a0427b9b"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(4436), "Ship Company " },
-                    { new Guid("2637af49-5c00-4cb9-a4e7-91e44ac3926d"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(4434), "RentACar Company " },
-                    { new Guid("e034b9a5-e3cf-4fdb-a584-d320ad79cf7c"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(4432), "Transfer Company " },
-                    { new Guid("3a7de0ab-12fa-49e9-b3f3-f5391a822c98"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(4412), "Tour Company " },
-                    { new Guid("2dab66e3-fe09-4907-a755-3d8ff26c1e9d"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(4110), "Hotel Company" },
-                    { new Guid("22dd934d-eff9-409e-bff6-0149bf905581"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(4429), "AirPlane Company " }
+                    { new Guid("76b15c5f-1137-4851-bd7e-6e4c3005dfac"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(4875), "Ship Company " },
+                    { new Guid("934b8b43-b22b-424e-84e7-2c1ef79e128f"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(4869), "RentACar Company " },
+                    { new Guid("24889c90-8e83-4dbc-a8b7-5dc7480adf5e"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(4867), "Transfer Company " },
+                    { new Guid("0981ac6a-1b71-4383-8069-c869ab3836a4"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(4849), "Tour Company " },
+                    { new Guid("85309226-2f5c-4cd4-a16b-36f49884ce7d"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(4552), "Hotel Company" },
+                    { new Guid("5a95de08-1def-48a8-9860-69c31aae8a5b"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(4864), "AirPlane Company " }
                 });
 
             migrationBuilder.InsertData(
@@ -279,9 +279,9 @@ namespace Resital.DAL.Migrations
                 columns: new[] { "Id", "CreatedAt", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("95ace62f-e388-4006-92c1-40a1d196d014"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(3162), "DNZ" },
-                    { new Guid("118bd04d-ad1e-4a85-a4ef-bc8158552d43"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(3474), "GNL " },
-                    { new Guid("1601d15e-6a3f-4360-ac5b-f413cd3083d8"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(3497), "PRK " }
+                    { new Guid("56686cdc-bcd9-4ebb-9f8d-f3e35019b83e"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(3579), "DNZ" },
+                    { new Guid("edd7b919-8bc5-465c-873d-5f2ff48d76c7"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(3892), "GNL " },
+                    { new Guid("b7b5dcf6-0ea1-4e43-a8e1-955fb8ed502b"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(3913), "PRK " }
                 });
 
             migrationBuilder.InsertData(
@@ -289,11 +289,11 @@ namespace Resital.DAL.Migrations
                 columns: new[] { "Id", "CreatedAt", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("cbf8b885-57a6-4df0-99bd-da5902bb88b9"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(2132), "SGL" },
-                    { new Guid("a8dc58c3-8fc2-4a1d-a7b6-5bf6ba07667f"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(2509), "DBL" },
-                    { new Guid("5e86dc0b-08eb-499d-8e79-82757183e16b"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(2527), "TRP" },
-                    { new Guid("3530fd0f-8e91-4944-a685-de4d78891cbd"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(2529), "DBL+1" },
-                    { new Guid("09021fcf-8e23-42fe-b931-5fb5c7e46205"), new DateTime(2020, 8, 1, 16, 19, 33, 276, DateTimeKind.Local).AddTicks(2531), "TRP+1" }
+                    { new Guid("045c7b52-397b-4d21-bf27-f32532c65d64"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(2512), "SGL" },
+                    { new Guid("44f320c4-1f36-466e-bb87-87a60997663d"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(2880), "DBL" },
+                    { new Guid("36f5c7ac-a3aa-4e99-8300-c096a71bd52d"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(2898), "TRP" },
+                    { new Guid("890caf1c-ff04-499f-8521-ae53cfd209b9"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(2900), "DBL+1" },
+                    { new Guid("57f049e4-e7d3-41f0-bbb8-6c394c8d7f3d"), new DateTime(2020, 8, 2, 18, 48, 37, 308, DateTimeKind.Local).AddTicks(2902), "TRP+1" }
                 });
 
             migrationBuilder.InsertData(
@@ -301,10 +301,10 @@ namespace Resital.DAL.Migrations
                 columns: new[] { "Id", "CreatedAt", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("fbbc79bc-4845-49d3-b2ba-2c87f1582da7"), new DateTime(2020, 8, 1, 16, 19, 33, 275, DateTimeKind.Local).AddTicks(2194), "Gemi" },
-                    { new Guid("e4ffd3cd-63a1-40ae-9186-43de77bd27c0"), new DateTime(2020, 8, 1, 16, 19, 33, 273, DateTimeKind.Local).AddTicks(9014), "Araba" },
-                    { new Guid("5683445c-b07e-4e36-afa4-f118593a2a75"), new DateTime(2020, 8, 1, 16, 19, 33, 275, DateTimeKind.Local).AddTicks(2140), "Uçak" },
-                    { new Guid("5f623b38-8f77-4c03-89f7-5a0d02462725"), new DateTime(2020, 8, 1, 16, 19, 33, 275, DateTimeKind.Local).AddTicks(2197), "Otobüs" }
+                    { new Guid("4219ebbf-993b-45ac-bc45-4e83c0e74102"), new DateTime(2020, 8, 2, 18, 48, 37, 307, DateTimeKind.Local).AddTicks(2628), "Gemi" },
+                    { new Guid("ac938c9f-c404-477e-be67-bf09a5728283"), new DateTime(2020, 8, 2, 18, 48, 37, 305, DateTimeKind.Local).AddTicks(8936), "Araba" },
+                    { new Guid("7e64c8b3-43eb-4ed0-bf3c-59a333e28d82"), new DateTime(2020, 8, 2, 18, 48, 37, 307, DateTimeKind.Local).AddTicks(2576), "Uçak" },
+                    { new Guid("7eef288f-c183-4b28-be3a-51783ab02a9e"), new DateTime(2020, 8, 2, 18, 48, 37, 307, DateTimeKind.Local).AddTicks(2632), "Otobüs" }
                 });
 
             migrationBuilder.CreateIndex(
