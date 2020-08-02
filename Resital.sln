@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resital.DAL", "Resital.DAL\Resital.DAL.csproj", "{93E84112-7D33-47C7-ADB2-6A8C09DF0683}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "Resital.DAL\DataAccess.csproj", "{93E84112-7D33-47C7-ADB2-6A8C09DF0683}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resital.Model", "Resital.Model\Resital.Model.csproj", "{973FEFE7-0883-4F38-8985-BE2CFE9B183A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Resital.Model\Model.csproj", "{973FEFE7-0883-4F38-8985-BE2CFE9B183A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resital.Core", "Resital.Core\Resital.Core.csproj", "{EE7BAD3A-BF82-49FB-B2BE-574B2896B765}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Resital.Core\Core.csproj", "{EE7BAD3A-BF82-49FB-B2BE-574B2896B765}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resital.DTO", "Resital.DTO\Resital.DTO.csproj", "{AB97E2D8-306D-49D6-9832-BF765F9CB734}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dto", "Resital.DTO\Dto.csproj", "{AB97E2D8-306D-49D6-9832-BF765F9CB734}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resital.BLL", "Resital.BLL\Resital.BLL.csproj", "{70E33DE9-4A6F-4772-B821-B41F657D56A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "Resital.BLL\BLL.csproj", "{70E33DE9-4A6F-4772-B821-B41F657D56A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resital.Mapping", "Resital.Mapping\Resital.Mapping.csproj", "{174680D0-1263-4C48-A2AD-8B8921AAA734}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mapping", "Resital.Mapping\Mapping.csproj", "{174680D0-1263-4C48-A2AD-8B8921AAA734}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resital.API", "Resital.API\Resital.API.csproj", "{C18F63CD-36B7-400C-A81B-011AB37C3746}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Resital.API\Api.csproj", "{C18F63CD-36B7-400C-A81B-011AB37C3746}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resital.WebUI", "Resital.WebUI\Resital.WebUI.csproj", "{5B9D1E90-D80C-43B0-9B28-6E0BE3A01415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Resital.WebUI\Web.csproj", "{5B9D1E90-D80C-43B0-9B28-6E0BE3A01415}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

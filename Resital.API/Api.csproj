@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Resital.BLL\Resital.BLL.csproj" />
-    <ProjectReference Include="..\Resital.DAL\Resital.DAL.csproj" />
-    <ProjectReference Include="..\Resital.Mapping\Resital.Mapping.csproj" />
+    <ProjectReference Include="..\Resital.BLL\BLL.csproj" />
+    <ProjectReference Include="..\Resital.DAL\DataAccess.csproj" />
+    <ProjectReference Include="..\Resital.Mapping\Mapping.csproj" />
   </ItemGroup>
 
 

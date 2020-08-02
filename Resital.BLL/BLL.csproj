@@ -9,9 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Resital.Core\Resital.Core.csproj" />
-    <ProjectReference Include="..\Resital.DTO\Resital.DTO.csproj" />
-    <ProjectReference Include="..\Resital.Model\Resital.Model.csproj" />
+    <ProjectReference Include="..\Resital.Core\Core.csproj" />
+    <ProjectReference Include="..\Resital.DTO\Dto.csproj" />
+    <ProjectReference Include="..\Resital.Model\Model.csproj" />
   </ItemGroup>
 
 </Project>

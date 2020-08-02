@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Resital.Core\Resital.Core.csproj" />
+    <ProjectReference Include="..\Resital.Core\Core.csproj" />
   </ItemGroup>
 
 </Project>
