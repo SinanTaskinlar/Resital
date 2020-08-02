@@ -5,6 +5,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.6" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\Resital.BLL\BLL.csproj" />
       <ProjectReference Include="..\Resital.DAL\DataAccess.csproj" />
       <ProjectReference Include="..\Resital.Mapping\Mapping.csproj" />

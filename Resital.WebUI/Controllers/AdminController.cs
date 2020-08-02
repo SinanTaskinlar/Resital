@@ -4,10 +4,12 @@ using Resital.BLL.Abstract;
 using Resital.DTO;
 using Resital.WebUI.Models;
 using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Resital.WebUI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         #region Cons
@@ -148,9 +150,10 @@ namespace Resital.WebUI.Controllers
         }
 
         // GET: AdminController/Details/5
-        public ActionResult RoomDetails(int id)
+        public ActionResult RoomDetails(Guid Id)
         {
-            return View();
+            var a = _roomService.getRoom(Id);
+            return View(a);
         }
 
         // GET: AdminController/RoomCreate
@@ -186,9 +189,11 @@ namespace Resital.WebUI.Controllers
         }
 
         // GET: AdminController/Edit/5
-        public ActionResult RoomEdit(int id)
+        public ActionResult RoomEdit(Guid Id )
         {
-            return View();
+            var a = _roomService.getRoom(Id);
+            
+            return View(a);
         }
 
         // POST: AdminController/Edit/5
@@ -196,34 +201,37 @@ namespace Resital.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult RoomEdit(int id, IFormCollection collection)
         {
+            var a = _roomService.getRoom(Guid.Parse(collection["Id"]));
+            a.CompanyId = Guid.Parse(collection["CompanyId"]);
+            a.RoomLocationId = Guid.Parse(collection["RoomLocationId"]);
+            a.RoomTypeId = Guid.Parse(collection["RoomTypeId"]);
+
+            var b = _roomService.updateRoom(a);
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("RoomList");
             }
             catch
             {
                 return View();
             }
-        }
-
-        // GET: AdminController/Delete/5
-        public ActionResult RoomDelete(int id)
-        {
-            return View();
         }
 
         // POST: AdminController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult RoomDelete(int id, IFormCollection collection)
+        public ActionResult RoomDelete(Guid Id)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var a = _roomService.deleteRoom(Id);
+                Console.WriteLine(a);
+                return RedirectToAction("CompanyList");
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                Console.WriteLine(e);
+                return RedirectToAction("CompanyList");
             }
         }
 
