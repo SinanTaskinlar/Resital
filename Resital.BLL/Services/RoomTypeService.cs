@@ -26,9 +26,10 @@ namespace Resital.BLL.Services
             return _mapper.Map<List<RoomTypeDto>>(room);
         }
 
-        public RoomTypeDto getRoomType(int roomTypeId)
+        public RoomTypeDto getRoomType(Guid roomTypeId)
         {
-            throw new NotImplementedException();
+            RoomType type = _uow.GetRepository<RoomType>().GetById(z=> z.Id == roomTypeId);
+            return _mapper.Map<RoomTypeDto>(type);
         }
 
         public List<RoomTypeDto> getRoomTypeName(string roomTypeName)
@@ -46,7 +47,7 @@ namespace Resital.BLL.Services
             throw new NotImplementedException();
         }
 
-        public bool deleteRoomType(int roomTypeId)
+        public bool deleteRoomType(Guid roomTypeId)
         {
             throw new NotImplementedException();
         }

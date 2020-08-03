@@ -77,7 +77,7 @@ namespace Resital.Core.Data.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            return _entities.AsQueryable();
+            return _entities.AsEnumerable();
         }
 
         private IQueryable<T> GetQueryable(

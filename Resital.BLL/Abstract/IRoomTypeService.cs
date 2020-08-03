@@ -1,4 +1,5 @@
-﻿using Resital.Core.Services;
+﻿using System;
+using Resital.Core.Services;
 using Resital.DTO;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace Resital.BLL.Abstract
     {
         List<RoomTypeDto> getAllRoomTypes();
 
-        RoomTypeDto getRoomType(int roomTypeId);
+        RoomTypeDto getRoomType(Guid roomTypeId);
 
         List<RoomTypeDto> getRoomTypeName(string roomTypeName);
 
@@ -16,6 +17,6 @@ namespace Resital.BLL.Abstract
 
         RoomTypeDto updateRoomType(RoomTypeDto roomType);
 
-        bool deleteRoomType(int roomTypeId);
+        bool deleteRoomType(Guid roomTypeId);
     }
 }
