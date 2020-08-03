@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Resital.BLL.Abstract;
 using Resital.DTO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Resital.WebUI.Controllers
 {
@@ -11,22 +12,26 @@ namespace Resital.WebUI.Controllers
     {
         private readonly ILogger<CompanyController> _logger;
         private readonly ICompanyService _companyService;
+        private readonly IRoomService _roomService;
 
-        public CompanyController(ILogger<CompanyController> logger, ICompanyService companyService)
+        public CompanyController(ILogger<CompanyController> logger, ICompanyService companyService, IRoomService roomService)
         {
             _logger = logger;
             _companyService = companyService;
+            _roomService = roomService;
         }
 
         // GET: CompanyController
-        public ActionResult Index(string sehir)
+        public ActionResult Index()
         {
-            List<CompanyDto> vmComp = null;
-            if (sehir == null)
-            {
-                vmComp = _companyService.getAllCompanies(/*sehir*/); //override method, liste döndüren hali yazılacak.
-            }
-            return View(vmComp);
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(string name)
+        {
+            var a = _companyService.getAllCompanies().Where(z => z.Name == name).ToList();
+            return View();
         }
 
         // GET: CompanyController/Details/5

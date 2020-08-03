@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using BLL.Abstract;
+using BLL.Services;
 using Web.Identity;
 using Web.Models;
 
@@ -10,11 +12,13 @@ namespace Web.Controllers
     {
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
+        private readonly ICartService _cartService;
         
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ICartService cartService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _cartService = cartService;
         }
 
         public IActionResult Login()
@@ -66,13 +70,14 @@ namespace Web.Controllers
             var res = await _userManager.CreateAsync(a, model.Password);
             if (res.Succeeded)
             {
-                var tok = await _userManager.GenerateEmailConfirmationTokenAsync(a);
+                _cartService.InitCart(a.Id);
+                //var tok = await _userManager.GenerateEmailConfirmationTokenAsync(a);
 
-                _ = Url.Action("ConfirmEmail", "Account", new
-                {
-                    userId = a.UserName,
-                    token = tok
-                });
+                //_ = Url.Action("ConfirmEmail", "Account", new
+                //{
+                //    userId = a.UserName,
+                //    token = tok
+                //});
 
                 return RedirectToAction("Login");
             }

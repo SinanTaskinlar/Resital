@@ -1,5 +1,7 @@
 using System;
 using AutoMapper;
+using BLL.Abstract;
+using BLL.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -82,6 +84,7 @@ namespace Resital.WebUI
             services.AddSingleton<IRoomService, RoomService>();
             services.AddSingleton<IRoomLocationService, RoomLocationService>();
             services.AddSingleton<IRoomTypeService, RoomTypeService>();
+            services.AddSingleton<ICartService, CartService>();
 
             var mappingConfig = new MapperConfiguration(mc => mc.AddProfile(new MapperProfile()));
             var mapper = mappingConfig.CreateMapper();

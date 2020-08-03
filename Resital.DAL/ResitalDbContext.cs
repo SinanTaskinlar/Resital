@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Resital.Model;
 using System;
+using Model;
 
 namespace Resital.DAL
 {
@@ -11,6 +12,8 @@ namespace Resital.DAL
             this.ChangeTracker.LazyLoadingEnabled = false;
         }
 
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<CompanyRoute> CompanyRoutes { get; set; }
