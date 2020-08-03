@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Resital.Model;
+using System.Threading.Tasks;
 using Web.Identity;
 using Web.Models;
 
@@ -14,12 +10,13 @@ namespace Web.Controllers
     {
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
-
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager )
+        
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
         public IActionResult Login()
         {
             return View();
@@ -35,11 +32,11 @@ namespace Web.Controllers
 
             var a = await _userManager.FindByEmailAsync(model.Email);
 
-            var res = await _signInManager.PasswordSignInAsync(a, model.Password,true,true);
+            var res = await _signInManager.PasswordSignInAsync(a, model.Password, true, true);
 
             if (res.Succeeded)
             {
-                //TODO: return RedirectToRoute()
+                return Redirect("~/");
             }
 
             return View();
@@ -69,11 +66,37 @@ namespace Web.Controllers
             var res = await _userManager.CreateAsync(a, model.Password);
             if (res.Succeeded)
             {
+                var tok = await _userManager.GenerateEmailConfirmationTokenAsync(a);
+
+                _ = Url.Action("ConfirmEmail", "Account", new
+                {
+                    userId = a.UserName,
+                    token = tok
+                });
+
                 return RedirectToAction("Login");
             }
 
-            ModelState.AddModelError("Password","Şifre hatası");
+            ModelState.AddModelError("Password", "Şifre hatası");
             return View(model);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Redirect("~/");
+        }
+
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            var res = await _userManager.ConfirmEmailAsync(user, token);
+            if (res.Succeeded)
+            {
+                TempData["message"] = "Hesap Onaylandı";
+                return View();
+            }
+            return View();
         }
     }
 }
