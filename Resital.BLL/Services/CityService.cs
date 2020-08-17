@@ -22,7 +22,7 @@ namespace Resital.BLL.Services
 
         public CityDto addCity(CityDto cityDto)
         {
-            if (!_uow.GetRepository<City>().GetAll().Any(z => z.Name == cityDto.Name))
+            if (_uow.GetRepository<City>().GetAll().All(z => z.Name != cityDto.Name))
             {
                 var city = _mapper.Map<City>(cityDto);
                 _uow.GetRepository<City>().Insert(city);

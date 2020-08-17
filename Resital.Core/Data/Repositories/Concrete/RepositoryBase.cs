@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Resital.Core.Data.Repositories
 {
-    public sealed class RepositoryBase<T> : IRepository<T> where T : Entity<Guid>
+    public class RepositoryBase<T> : IRepository<T> where T : Entity<Guid>
     {
         private readonly DbContext _context;
         private readonly DbSet<T> _entities;
@@ -20,7 +20,7 @@ namespace Resital.Core.Data.Repositories
 
         public T GetById(Guid id)
         {
-            return _entities.SingleOrDefault(s => s.Id == id);
+            return _entities.Find(id);
         }
 
         public void Insert(T entity)
@@ -39,7 +39,7 @@ namespace Resital.Core.Data.Repositories
 
         public void Delete(Guid id)
         {
-            if (id == default) throw new ArgumentNullException("id");
+            if (id == default) throw new ArgumentNullException(nameof(id));
             {
                 T entity = _entities.SingleOrDefault(s => s.Id == id);
                 _entities.Remove(entity);
@@ -49,67 +49,33 @@ namespace Resital.Core.Data.Repositories
 
         public T GetById(Expression<Func<T, bool>> filter = null)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         public T GetById(Expression<Func<T, bool>> filter = null, params Expression<Func<T, object>>[] includes)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         public IQueryable<T> GetById(params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = _context.Set<T>();
-            foreach (var include in includes) query = query.Include(include.Name);
-            return query;
+            throw new NotImplementedException();
         }
 
         public IQueryable<T> GetById(Expression<Func<T, bool>> filter = null, Expression<Func<T, object>> include = null)
         {
-            return GetQueryable(filter, include, null);
+            throw new NotImplementedException();
         }
 
         public IQueryable<T> GetById(Expression<Func<T, bool>> filter = null, Expression<Func<T, object>> include = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, int? skip = null,
             int? take = null)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _entities.AsEnumerable();
-        }
-
-        private IQueryable<T> GetQueryable(
-            Expression<Func<T, bool>> filter = null,
-            Expression<Func<T, object>> include = null,
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-            int? skip = null,
-            int? take = null)
-        {
-            IQueryable<T> query = _context.Set<T>();
-            if (filter != null)
-            {
-                query = query.Where(filter);
-            }
-            if (include != null)
-            {
-                query = query.Include(include);
-            }
-            if (orderBy != null)
-            {
-                query = orderBy(query);
-            }
-            if (skip.HasValue)
-            {
-                query = query.Skip(skip.Value);
-            }
-            if (take.HasValue)
-            {
-                query = query.Take(take.Value);
-            }
-
-            return query;
+            return _entities.ToList();
         }
     }
 }

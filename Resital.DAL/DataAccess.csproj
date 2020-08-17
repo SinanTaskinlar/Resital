@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Resital.DTO\Dto.csproj" />
     <ProjectReference Include="..\Resital.Model\Model.csproj" />
   </ItemGroup>
 

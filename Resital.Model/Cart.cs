@@ -7,7 +7,7 @@ namespace Model
 {
     public class Cart : Entity<Guid>
     {
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
         public List<CartItem> CartItems { get; set; }
     }
 }

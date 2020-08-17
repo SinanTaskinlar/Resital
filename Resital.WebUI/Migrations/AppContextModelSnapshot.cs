@@ -5,10 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web.Identity;
+using AppContext = Web.Identity.AppContext;
 
 namespace Web.Migrations
 {
-    [DbContext(typeof(Web.Identity.AppContext))]
+    [DbContext(typeof(AppContext))]
     partial class AppContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

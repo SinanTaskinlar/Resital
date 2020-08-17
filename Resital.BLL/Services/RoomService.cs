@@ -22,8 +22,14 @@ namespace Resital.BLL.Services
 
         public List<RoomDto> getAllRooms()
         {
-            var room = _uow.GetRepository<Room>().GetAll().ToList();
-            return _mapper.Map<List<RoomDto>>(room);
+            var rooms = _uow.GetRepository<Room>().GetAll().ToList();
+            foreach (var room in rooms)
+            {
+                room.Company = _uow.GetRepository<Company>().GetById(room.CompanyId);
+                room.RoomLocation = _uow.GetRepository<RoomLocation>().GetById(room.RoomLocationId);
+                room.RoomType = _uow.GetRepository<RoomType>().GetById(room.RoomTypeId);
+            }
+            return _mapper.Map<List<RoomDto>>(rooms);
         }
 
         public RoomDto getRoom(Guid roomId)
