@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
 using BLL.Abstract;
-using Dto;
 using Model;
 using Resital.Core.Data.UnitOfWork;
+using System;
+using System.Linq;
 
 namespace BLL.Services
 {
@@ -21,7 +17,8 @@ namespace BLL.Services
             this._uow = uow;
             this._mapper = mapper;
         }
-        public void InitCart(string userId)
+
+        public void InitCart(Guid userId)
         {
             _uow.GetRepository<Cart>().Insert(new Cart()
             {
@@ -29,15 +26,36 @@ namespace BLL.Services
             });
         }
 
-        public CartDTO GetCartByUserId(string userId)
+        public Cart GetCartByUserId(Guid userId)
         {
             var a = _uow.GetRepository<Cart>().GetById(z => z.UserId == userId);
-            return _mapper.Map<CartDTO>(a);
+            //return _mapper.Map<CartDTO>(a);
+            return a;
         }
 
-        public void AddToCart(string userId, int productId, int quantity)
+        public void AddToCart(Guid userId, Guid roomId, int quantity)
         {
-            throw new NotImplementedException();
+            var cart = GetCartByUserId(userId);
+
+            if (cart != null)
+            {
+                var index = cart.CartItems.FindIndex(i => i.RoomId == roomId);
+                if (index < 0)
+                {
+                    cart.CartItems.Add(new CartItem()
+                    {
+                        RoomId = roomId,
+                        Quantity = quantity,
+                        CardId = cart.Id
+                    });
+                }
+                else
+                {
+                    cart.CartItems[index].Quantity += quantity;
+                }
+
+                _uow.GetRepository<Cart>().Update(cart);
+            }
         }
 
         public void DeleteFromCart(Guid userId, Guid roomId)
