@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using BLL.Abstract;
@@ -10,8 +11,8 @@ namespace Web.Controllers
 {
     public class AccountController : Controller
     {
-        private UserManager<User> _userManager;
-        private SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
         private readonly ICartService _cartService;
         
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ICartService cartService)
@@ -63,14 +64,14 @@ namespace Web.Controllers
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                UserName = model.Username,
+                UserName = model.UserName,
                 Email = model.Email
             };
 
             var res = await _userManager.CreateAsync(a, model.Password);
             if (res.Succeeded)
             {
-                _cartService.InitCart(a.Id);
+                _cartService.InitCart(Guid.Parse(a.Id));
                 //var tok = await _userManager.GenerateEmailConfirmationTokenAsync(a);
 
                 //_ = Url.Action("ConfirmEmail", "Account", new

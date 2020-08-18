@@ -31,7 +31,7 @@ namespace Resital.BLL.Services
         {
             //var company = _uow.GetRepository<Company>().Get(z => z.Id == companyId, z => z.Rooms);
             var company = _uow.GetRepository<Company>().GetById(z => z.Id == companyId, z => z.Rooms);
-            return _mapper.Map<CompanyDto>(company.FirstOrDefault());
+            return _mapper.Map<CompanyDto>(company);
         }
 
         public CompanyDto addCompany(CompanyDto companyDto)

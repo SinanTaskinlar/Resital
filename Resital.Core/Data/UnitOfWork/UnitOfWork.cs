@@ -4,7 +4,6 @@ using Resital.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Core.Data.Repositories;
 
 namespace Resital.Core.Data.UnitOfWork
 {
@@ -45,9 +44,6 @@ namespace Resital.Core.Data.UnitOfWork
                 return _repos[typeof(T)] as IRepository<T>;
             }
 
-            if (T == Cart)
-            {
-            }
             var repository = new RepositoryBase<T>(_context);
             _repos.Add(typeof(T), repository);
             return repository;

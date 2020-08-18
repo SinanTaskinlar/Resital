@@ -5,11 +5,13 @@ using Resital.DTO;
 using Resital.WebUI.Models;
 using System;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Web.Identity;
 
 namespace Resital.WebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         #region Cons
@@ -20,6 +22,8 @@ namespace Resital.WebUI.Controllers
         private readonly ICompanyTypeService _companyTypeService;
         private readonly IRoomLocationService _roomLocationService;
         private readonly IRoomTypeService _roomTypeService;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<User> _userManager;
 
         public AdminController(
             ICompanyService companyService,
@@ -27,7 +31,9 @@ namespace Resital.WebUI.Controllers
             IVehicleService vehicleService,
             ICompanyTypeService companyTypeService,
             IRoomLocationService roomLocationService,
-            IRoomTypeService roomTypeService
+            IRoomTypeService roomTypeService,
+            RoleManager<IdentityRole> roleManager,
+            UserManager<User> userManager
             )
         {
             _companyService = companyService;
@@ -36,6 +42,8 @@ namespace Resital.WebUI.Controllers
             _companyTypeService = companyTypeService;
             _roomLocationService = roomLocationService;
             _roomTypeService = roomTypeService;
+            _roleManager = roleManager;
+            _userManager = userManager;
         }
 
         #endregion Cons
@@ -45,6 +53,26 @@ namespace Resital.WebUI.Controllers
         {
             return View();
         }
+
+        #region Role
+
+        public IActionResult RoleList()
+        {
+            return View();
+        }
+
+        public IActionResult RoleCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RoleCreate(string roleName)
+        {
+            return View();
+        }
+
+        #endregion
 
         #region Company
 
@@ -75,11 +103,13 @@ namespace Resital.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CompanyCreate(IFormCollection collection)
         {
-            CompanyDto dto = new CompanyDto();
-            dto.Name = collection["Name"];
-            dto.Address = collection["Address"];
-            dto.Note = collection["Note"];
-            dto.CompanyTypeId = Guid.Parse(collection["CompanyTypeId"]);
+            CompanyDto dto = new CompanyDto
+            {
+                Name = collection["Name"],
+                Address = collection["Address"],
+                Note = collection["Note"],
+                CompanyTypeId = Guid.Parse(collection["CompanyTypeId"])
+            };
 
             try
             {
@@ -109,8 +139,7 @@ namespace Resital.WebUI.Controllers
             a.Address = collection["Address"];
             a.Note = collection["Note"];
             a.CompanyTypeId = Guid.Parse(collection["CompanyTypeId"]);
-
-            var b = _companyService.updateCompany(a);
+            _ = _companyService.updateCompany(a);
 
             try
             {
@@ -159,10 +188,12 @@ namespace Resital.WebUI.Controllers
         // GET: AdminController/RoomCreate
         public ActionResult RoomCreate()
         {
-            RoomViewModel a = new RoomViewModel();
-            a.Companies = _companyService.getAllCompanies();
-            a.Locations = _roomLocationService.getAllRoomLocations();
-            a.Types = _roomTypeService.getAllRoomTypes();
+            RoomViewModel a = new RoomViewModel
+            {
+                Companies = _companyService.getAllCompanies(),
+                Locations = _roomLocationService.getAllRoomLocations(),
+                Types = _roomTypeService.getAllRoomTypes()
+            };
             return View(a);
         }
 

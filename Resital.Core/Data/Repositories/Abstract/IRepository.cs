@@ -19,19 +19,14 @@ namespace Resital.Core.Data.Repositories
         void Delete(Guid id);
 
         T GetById(Expression<Func<T, bool>> filter = null);
-
-        T GetById(Expression<Func<T, bool>> filter = null, params Expression<Func<T, object>>[] includes);
-
         IQueryable<T> GetById(params Expression<Func<T, object>>[] includes);
-
         IQueryable<T> GetById(Expression<Func<T, bool>> filter = null,
-                          Expression<Func<T, object>> include = null);
-
+            Expression<Func<T, object>> include = null);
         IQueryable<T> GetById(Expression<Func<T, bool>> filter = null,
-                           Expression<Func<T, object>> include = null,
-                           Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-                           int? skip = null,
-                           int? take = null
-                           );
+            Expression<Func<T, object>> include = null,
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+            int? skip = null,
+            int? take = null
+        );
     }
 }
