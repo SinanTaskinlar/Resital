@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Resital.BLL.Abstract;
 using Resital.DTO;
-using System;
-using System.Collections.Generic;
 
 namespace Resital.API.Controllers
 {

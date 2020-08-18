@@ -1,20 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Resital.BLL.Abstract;
-using Resital.DTO;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Resital.WebUI.Controllers
 {
     public class CompanyController : Controller
     {
-        private readonly ILogger<CompanyController> _logger;
         private readonly ICompanyService _companyService;
+        private readonly ILogger<CompanyController> _logger;
         private readonly IRoomService _roomService;
 
-        public CompanyController(ILogger<CompanyController> logger, ICompanyService companyService, IRoomService roomService)
+        public CompanyController(ILogger<CompanyController> logger, ICompanyService companyService,
+            IRoomService roomService)
         {
             _logger = logger;
             _companyService = companyService;

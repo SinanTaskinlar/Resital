@@ -1,5 +1,5 @@
-﻿using Resital.Core.Entities;
-using System;
+﻿using System;
+using Resital.Core.Entities;
 
 namespace Resital.Model
 {

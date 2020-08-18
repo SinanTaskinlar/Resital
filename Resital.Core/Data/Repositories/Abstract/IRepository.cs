@@ -1,8 +1,8 @@
-﻿using Resital.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Resital.Core.Entities;
 
 namespace Resital.Core.Data.Repositories
 {
@@ -20,8 +20,10 @@ namespace Resital.Core.Data.Repositories
 
         T GetById(Expression<Func<T, bool>> filter = null);
         IQueryable<T> GetById(params Expression<Func<T, object>>[] includes);
+
         IQueryable<T> GetById(Expression<Func<T, bool>> filter = null,
             Expression<Func<T, object>> include = null);
+
         IQueryable<T> GetById(Expression<Func<T, bool>> filter = null,
             Expression<Func<T, object>> include = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,

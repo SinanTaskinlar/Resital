@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Dto;
 using Model;
 using Resital.Core.Services;
 

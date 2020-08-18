@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Resital.Model;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Model;
+using Resital.Model;
 
 namespace Resital.DAL
 {
@@ -9,7 +9,7 @@ namespace Resital.DAL
     {
         public ResitalDbContext()
         {
-            this.ChangeTracker.LazyLoadingEnabled = false;
+            ChangeTracker.LazyLoadingEnabled = false;
         }
 
         public DbSet<Cart> Carts { get; set; }
@@ -66,59 +66,59 @@ namespace Resital.DAL
                 .WithMany(c => c.Rooms);
 
             modelBuilder.Entity<VehicleType>().HasData(
-                new VehicleType { Id = Guid.NewGuid(), Name = "Araba" },
-                new VehicleType { Id = Guid.NewGuid(), Name = "Uçak" },
-                new VehicleType { Id = Guid.NewGuid(), Name = "Gemi" },
-                new VehicleType { Id = Guid.NewGuid(), Name = "Otobüs" }
+                new VehicleType {Id = Guid.NewGuid(), Name = "Araba"},
+                new VehicleType {Id = Guid.NewGuid(), Name = "Uçak"},
+                new VehicleType {Id = Guid.NewGuid(), Name = "Gemi"},
+                new VehicleType {Id = Guid.NewGuid(), Name = "Otobüs"}
             );
 
             modelBuilder.Entity<RoomType>().HasData(
-                new RoomType { Id = Guid.NewGuid(), Name = "SGL" },
-                new RoomType { Id = Guid.NewGuid(), Name = "DBL" },
-                new RoomType { Id = Guid.NewGuid(), Name = "TRP" },
-                new RoomType { Id = Guid.NewGuid(), Name = "DBL+1" },
-                new RoomType { Id = Guid.NewGuid(), Name = "TRP+1" }
+                new RoomType {Id = Guid.NewGuid(), Name = "SGL"},
+                new RoomType {Id = Guid.NewGuid(), Name = "DBL"},
+                new RoomType {Id = Guid.NewGuid(), Name = "TRP"},
+                new RoomType {Id = Guid.NewGuid(), Name = "DBL+1"},
+                new RoomType {Id = Guid.NewGuid(), Name = "TRP+1"}
             );
 
             modelBuilder.Entity<RoomLocation>().HasData(
-                new RoomLocation { Id = Guid.NewGuid(), Name = "DNZ" },
-                new RoomLocation { Id = Guid.NewGuid(), Name = "GNL " },
-                new RoomLocation { Id = Guid.NewGuid(), Name = "PRK " }
+                new RoomLocation {Id = Guid.NewGuid(), Name = "DNZ"},
+                new RoomLocation {Id = Guid.NewGuid(), Name = "GNL "},
+                new RoomLocation {Id = Guid.NewGuid(), Name = "PRK "}
             );
 
             modelBuilder.Entity<CompanyType>().HasData(
-                new CompanyType { Id = Guid.NewGuid(), TypeName = "Hotel Company" },
-                new CompanyType { Id = Guid.NewGuid(), TypeName = "Tour Company " },
-                new CompanyType { Id = Guid.NewGuid(), TypeName = "AirPlane Company " },
-                new CompanyType { Id = Guid.NewGuid(), TypeName = "Transfer Company " },
-                new CompanyType { Id = Guid.NewGuid(), TypeName = "RentACar Company " },
-                new CompanyType { Id = Guid.NewGuid(), TypeName = "Ship Company " }
+                new CompanyType {Id = Guid.NewGuid(), TypeName = "Hotel Company"},
+                new CompanyType {Id = Guid.NewGuid(), TypeName = "Tour Company "},
+                new CompanyType {Id = Guid.NewGuid(), TypeName = "AirPlane Company "},
+                new CompanyType {Id = Guid.NewGuid(), TypeName = "Transfer Company "},
+                new CompanyType {Id = Guid.NewGuid(), TypeName = "RentACar Company "},
+                new CompanyType {Id = Guid.NewGuid(), TypeName = "Ship Company "}
             );
 
             modelBuilder.Entity<City>().HasData(
-                new City { Id = Guid.NewGuid(), Name = "İstanbul" },
-                new City { Id = Guid.NewGuid(), Name = "Ankara" },
-                new City { Id = Guid.NewGuid(), Name = "İzmir" },
-                new City { Id = Guid.NewGuid(), Name = "Antalya" },
-                new City { Id = Guid.NewGuid(), Name = "Adana" },
-                new City { Id = Guid.NewGuid(), Name = "Eskişehir" },
-                new City { Id = Guid.NewGuid(), Name = "Afyonkarahisar " },
-                new City { Id = Guid.NewGuid(), Name = "Artvin" },
-                new City { Id = Guid.NewGuid(), Name = "Balıkesir" },
-                new City { Id = Guid.NewGuid(), Name = "Bursa" },
-                new City { Id = Guid.NewGuid(), Name = "Çanakkale" },
-                new City { Id = Guid.NewGuid(), Name = "Diyarbakır" },
-                new City { Id = Guid.NewGuid(), Name = "Edirne" },
-                new City { Id = Guid.NewGuid(), Name = "Kastamonu" },
-                new City { Id = Guid.NewGuid(), Name = "Kütahya" },
-                new City { Id = Guid.NewGuid(), Name = "Muğla" },
-                new City { Id = Guid.NewGuid(), Name = "Nevşehir" },
-                new City { Id = Guid.NewGuid(), Name = "Sinop" },
-                new City { Id = Guid.NewGuid(), Name = "Sivas" },
-                new City { Id = Guid.NewGuid(), Name = "Şanlıurfa" },
-                new City { Id = Guid.NewGuid(), Name = "Tokat" },
-                new City { Id = Guid.NewGuid(), Name = "Trabzon" },
-                new City { Id = Guid.NewGuid(), Name = "Yozgat" }
+                new City {Id = Guid.NewGuid(), Name = "İstanbul"},
+                new City {Id = Guid.NewGuid(), Name = "Ankara"},
+                new City {Id = Guid.NewGuid(), Name = "İzmir"},
+                new City {Id = Guid.NewGuid(), Name = "Antalya"},
+                new City {Id = Guid.NewGuid(), Name = "Adana"},
+                new City {Id = Guid.NewGuid(), Name = "Eskişehir"},
+                new City {Id = Guid.NewGuid(), Name = "Afyonkarahisar "},
+                new City {Id = Guid.NewGuid(), Name = "Artvin"},
+                new City {Id = Guid.NewGuid(), Name = "Balıkesir"},
+                new City {Id = Guid.NewGuid(), Name = "Bursa"},
+                new City {Id = Guid.NewGuid(), Name = "Çanakkale"},
+                new City {Id = Guid.NewGuid(), Name = "Diyarbakır"},
+                new City {Id = Guid.NewGuid(), Name = "Edirne"},
+                new City {Id = Guid.NewGuid(), Name = "Kastamonu"},
+                new City {Id = Guid.NewGuid(), Name = "Kütahya"},
+                new City {Id = Guid.NewGuid(), Name = "Muğla"},
+                new City {Id = Guid.NewGuid(), Name = "Nevşehir"},
+                new City {Id = Guid.NewGuid(), Name = "Sinop"},
+                new City {Id = Guid.NewGuid(), Name = "Sivas"},
+                new City {Id = Guid.NewGuid(), Name = "Şanlıurfa"},
+                new City {Id = Guid.NewGuid(), Name = "Tokat"},
+                new City {Id = Guid.NewGuid(), Name = "Trabzon"},
+                new City {Id = Guid.NewGuid(), Name = "Yozgat"}
             );
         }
     }

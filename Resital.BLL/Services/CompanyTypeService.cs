@@ -1,11 +1,11 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Resital.BLL.Services
 {
@@ -16,8 +16,8 @@ namespace Resital.BLL.Services
 
         public CompanyTypeService(IMapper mapper, IUnitOfWork uow)
         {
-            this._mapper = mapper;
-            this._uow = uow;
+            _mapper = mapper;
+            _uow = uow;
         }
 
         public List<CompanyTypeDto> getAllCompanyTypes()
@@ -40,15 +40,13 @@ namespace Resital.BLL.Services
                 _uow.SaveChanges();
                 return _mapper.Map<CompanyTypeDto>(city);
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
         public CompanyTypeDto updateCompanyType(CompanyTypeDto companyTypeDto)
         {
-            CompanyType companyType = _uow.GetRepository<CompanyType>().GetById(companyTypeDto.Id);
+            var companyType = _uow.GetRepository<CompanyType>().GetById(companyTypeDto.Id);
             companyType = _mapper.Map<CompanyType>(companyTypeDto);
             _uow.GetRepository<CompanyType>().Update(companyType);
             _uow.SaveChanges();

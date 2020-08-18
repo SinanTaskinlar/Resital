@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 using Web.Identity;
 
 namespace Web.Models
 {
     public class RoleModel
     {
-        [Required]
-        public string Name { get; set; }
+        [Required] public string Name { get; set; }
     }
 
     public class RoleDetails

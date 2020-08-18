@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Resital.Core.Entities;
 using Resital.Model;
 
@@ -13,6 +11,5 @@ namespace Model
         public Guid RoomId { get; set; }
         public Room Room { get; set; }
         public int Quantity { get; set; }
-
     }
 }

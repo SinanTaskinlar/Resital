@@ -1,6 +1,4 @@
-﻿@using Web.Identity
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -19,76 +17,115 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container">
-            <a class="navbar-brand logo" asp-controller="Home" asp-action="Index">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                 id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" asp-controller="Room" asp-action="Index">Keşfet</a></li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item" role="presentation"><a class="nav-link" asp-controller="Home" asp-action="Index">@User.Identity.Name</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" asp-controller="Account" asp-action="Logout">Çıkış Yap</a></li>
-                    }
-                    else
-                    {
-                        <li class="nav-item" role="presentation"><a class="nav-link" asp-controller="Account" asp-action="Login">Giriş Yap</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" asp-controller="Account" asp-action="Register">Kaydol</a></li>
-                    }
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container">
+        <a class="navbar-brand logo" asp-controller="Home" asp-action="Index">Brand</a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+            <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse"
+             id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" asp-controller="Room" asp-action="Index">Keşfet</a>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">@User.Identity.Name</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" asp-controller="Account" asp-action="Register">Kaydol</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+@RenderBody()
+
+@RenderSection("Scripts", false)
+<footer class="page-footer dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5>Get started</h5>
+                <ul>
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Account" asp-action="Register">Sign up</a>
+                    </li>
+                    <li>
+                        <a href="#">Downloads</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>About us</h5>
+                <ul>
+                    <li>
+                        <a href="#">Company Information</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact us</a>
+                    </li>
+                    <li>
+                        <a href="#">Reviews</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Support</h5>
+                <ul>
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#">Help desk</a>
+                    </li>
+                    <li>
+                        <a href="#">Forums</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Legal</h5>
+                <ul>
+                    <li>
+                        <a href="#">Terms of Service</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Use</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
                 </ul>
             </div>
         </div>
-    </nav>
-    @RenderBody()
-
-    @RenderSection("Scripts", required: false)
-    <footer class="page-footer dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h5>Get started</h5>
-                    <ul>
-                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-controller="Account" asp-action="Register">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>About us</h5>
-                    <ul>
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Support</h5>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p>© 2020 Copyright Text</p>
-        </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="/assets/js/smoothproducts.min.js"></script>
-    <script src="/assets/js/theme.js"></script>
+    </div>
+    <div class="footer-copyright">
+        <p>© 2020 Copyright Text</p>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script src="/assets/js/smoothproducts.min.js"></script>
+<script src="/assets/js/theme.js"></script>
 </body>
 </html>

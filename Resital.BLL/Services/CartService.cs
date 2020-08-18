@@ -1,26 +1,26 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Linq;
+using AutoMapper;
 using BLL.Abstract;
 using Model;
 using Resital.Core.Data.UnitOfWork;
-using System;
-using System.Linq;
 
 namespace BLL.Services
 {
     public class CartService : ICartService
     {
-        private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _uow;
 
         public CartService(IUnitOfWork uow, IMapper mapper)
         {
-            this._uow = uow;
-            this._mapper = mapper;
+            _uow = uow;
+            _mapper = mapper;
         }
 
         public void InitCart(Guid userId)
         {
-            _uow.GetRepository<Cart>().Insert(new Cart()
+            _uow.GetRepository<Cart>().Insert(new Cart
             {
                 UserId = userId
             });
@@ -41,18 +41,14 @@ namespace BLL.Services
             {
                 var index = cart.CartItems.FindIndex(i => i.RoomId == roomId);
                 if (index < 0)
-                {
-                    cart.CartItems.Add(new CartItem()
+                    cart.CartItems.Add(new CartItem
                     {
                         RoomId = roomId,
                         Quantity = quantity,
                         CardId = cart.Id
                     });
-                }
                 else
-                {
                     cart.CartItems[index].Quantity += quantity;
-                }
 
                 _uow.GetRepository<Cart>().Update(cart);
             }
@@ -62,10 +58,7 @@ namespace BLL.Services
         {
             var a = _uow.GetRepository<Cart>().GetById(z => z.UserId == userId);
             var itemList = a.CartItems.Where(z => z.RoomId == roomId).ToList();
-            foreach (var item in itemList)
-            {
-                a.CartItems.Remove(item);
-            }
+            foreach (var item in itemList) a.CartItems.Remove(item);
             _uow.GetRepository<Cart>().Update(a);
         }
 

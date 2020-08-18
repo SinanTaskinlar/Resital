@@ -1,6 +1,6 @@
 ﻿@model List<Resital.DTO.CompanyDto>
 @{
-    Layout = $"~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="container-fluid">
     <h3 class="text-dark mb-4">Companies</h3>
@@ -14,46 +14,62 @@
                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"></div>
                 </div>
                 <div class="col-md-6">
-                    <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search" /></label></div>
+                    <div class="text-md-right dataTables_filter" id="dataTable_filter">
+                        <label>
+                            <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"/>
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                 <table class="table my-0" id="dataTable">
                     <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Note</th>
-                            <th>Oda Sayısı</th>
-                            <th>Start date</th>
-                        </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Note</th>
+                        <th>Oda Sayısı</th>
+                        <th>Start date</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach (var company in Model)
-                        {
-                            <tr>
-                                <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpg" /><a asp-controller="Company" asp-action="Details/@company.CompanyTypeId">@company.Name</a></td>
-                                <td>@company.Address</td>
-                                <td>@company.Note</td>
-                                <td>@company.Rooms.Count</td>
-                                <td>
-                                    <form method="post" action="/Admin/CompanyDelete/">
-                                        <a asp-controller="Admin" asp-action="CompanyEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Güncelle</a>
-                                        <input type="hidden" name="Id" value="@company.Id" />
-                                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        }
+                    @foreach (var company in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpg"/><a asp-controller="Company" asp-action="Details/@company.CompanyTypeId">@company.Name</a>
+                            </td>
+                            <td>@company.Address</td>
+                            <td>@company.Note</td>
+                            <td>@company.Rooms.Count</td>
+                            <td>
+                                <form method="post" action="/Admin/CompanyDelete/">
+                                    <a asp-controller="Admin" asp-action="CompanyEdit@company.Id" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Güncelle</a>
+                                    <input type="hidden" name="Id" value="@company.Id"/>
+                                    <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                     <tfoot>
-                        <tr>
-                            <td><strong>Name</strong></td>
-                            <td><strong>Position</strong></td>
-                            <td><strong>Office</strong></td>
-                            <td><strong>Age</strong></td>
-                            <td><strong>Start date</strong></td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <strong>Name</strong>
+                        </td>
+                        <td>
+                            <strong>Position</strong>
+                        </td>
+                        <td>
+                            <strong>Office</strong>
+                        </td>
+                        <td>
+                            <strong>Age</strong>
+                        </td>
+                        <td>
+                            <strong>Start date</strong>
+                        </td>
+                    </tr>
                     </tfoot>
                 </table>
             </div>
@@ -64,11 +80,25 @@
                 <div class="col-md-6">
                     <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                         <ul class="pagination">
-                            <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

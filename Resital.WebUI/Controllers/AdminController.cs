@@ -1,19 +1,25 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Resital.BLL.Abstract;
 using Resital.DTO;
 using Resital.WebUI.Models;
-using System;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Web.Identity;
 
 namespace Resital.WebUI.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
+    //[Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
+        // GET: AdminController
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         #region Cons
 
         private readonly ICompanyService _companyService;
@@ -34,7 +40,7 @@ namespace Resital.WebUI.Controllers
             IRoomTypeService roomTypeService,
             RoleManager<IdentityRole> roleManager,
             UserManager<User> userManager
-            )
+        )
         {
             _companyService = companyService;
             _roomService = roomService;
@@ -47,12 +53,6 @@ namespace Resital.WebUI.Controllers
         }
 
         #endregion Cons
-
-        // GET: AdminController
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         #region Role
 
@@ -93,7 +93,7 @@ namespace Resital.WebUI.Controllers
         [HttpGet]
         public ActionResult CompanyCreate()
         {
-            CompanyViewModel comp = new CompanyViewModel();
+            var comp = new CompanyViewModel();
             var a = _companyTypeService.getAllCompanyTypes();
             return View(a);
         }
@@ -103,7 +103,7 @@ namespace Resital.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CompanyCreate(IFormCollection collection)
         {
-            CompanyDto dto = new CompanyDto
+            var dto = new CompanyDto
             {
                 Name = collection["Name"],
                 Address = collection["Address"],
@@ -188,7 +188,7 @@ namespace Resital.WebUI.Controllers
         // GET: AdminController/RoomCreate
         public ActionResult RoomCreate()
         {
-            RoomViewModel a = new RoomViewModel
+            var a = new RoomViewModel
             {
                 Companies = _companyService.getAllCompanies(),
                 Locations = _roomLocationService.getAllRoomLocations(),
@@ -202,7 +202,7 @@ namespace Resital.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult RoomCreate(IFormCollection collection)
         {
-            RoomDto dto = new RoomDto
+            var dto = new RoomDto
             {
                 CompanyId = Guid.Parse(collection["Comp"]),
                 RoomLocationId = Guid.Parse(collection["Loc"]),
@@ -220,10 +220,10 @@ namespace Resital.WebUI.Controllers
         }
 
         // GET: AdminController/Edit/5
-        public ActionResult RoomEdit(Guid Id )
+        public ActionResult RoomEdit(Guid Id)
         {
             var a = _roomService.getRoom(Id);
-            
+
             return View(a);
         }
 

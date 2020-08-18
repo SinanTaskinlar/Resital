@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using BLL.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -17,6 +15,7 @@ namespace Web.Controllers
         private readonly ICartService _cartService;
         private readonly IOrderService _orderService;
         private readonly UserManager<User> _userManager;
+
         public CartController(IOrderService orderService, ICartService cartService, UserManager<User> userManager)
         {
             _cartService = cartService;
@@ -27,10 +26,10 @@ namespace Web.Controllers
         public IActionResult Index()
         {
             var cart = _cartService.GetCartByUserId(Guid.Parse(_userManager.GetUserId(User)));
-            return View(new CartModel()
+            return View(new CartModel
             {
                 CartId = cart.Id,
-                CartItems = cart.CartItems.Select(i => new CartItemModel()
+                CartItems = cart.CartItems.Select(i => new CartItemModel
                 {
                     CartItemId = i.Id,
                     ProductId = i.RoomId,

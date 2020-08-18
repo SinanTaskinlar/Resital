@@ -64,7 +64,7 @@ namespace Resital.WebUI
                 options.LoginPath = "/Account/Login";
                 options.AccessDeniedPath = "/Account/AccessDenied";
                 options.Cookie = new CookieBuilder
-                { 
+                {
                     HttpOnly = true,
                     Name = ".Resital.Cookie"
                 };
@@ -116,8 +116,8 @@ namespace Resital.WebUI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

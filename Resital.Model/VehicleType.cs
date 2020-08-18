@@ -1,6 +1,6 @@
-﻿using Resital.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Resital.Core.Entities;
 
 namespace Resital.Model
 {

@@ -1,23 +1,23 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Resital.BLL.Services
 {
     public class CityService : ICityService
     {
-        private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _uow;
 
         public CityService(IUnitOfWork uow, IMapper mapper)
         {
-            this._uow = uow;
-            this._mapper = mapper;
+            _uow = uow;
+            _mapper = mapper;
         }
 
         public CityDto addCity(CityDto cityDto)
@@ -29,10 +29,8 @@ namespace Resital.BLL.Services
                 _uow.SaveChanges();
                 return _mapper.Map<CityDto>(city);
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
         public bool deleteCity(Guid cityId)

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Resital.BLL.Abstract;
@@ -12,14 +8,14 @@ namespace Web.Controllers
 {
     public class RoomController : Controller
     {
-        private readonly ILogger<CompanyController> _logger;
         private readonly ICompanyService _companyService;
-        private readonly IRoomService _roomService;
+        private readonly ILogger<CompanyController> _logger;
         private readonly IRoomLocationService _roomLocationService;
+        private readonly IRoomService _roomService;
         private readonly IRoomTypeService _roomTypeService;
 
-        public RoomController(ILogger<CompanyController> logger, 
-            ICompanyService companyService, 
+        public RoomController(ILogger<CompanyController> logger,
+            ICompanyService companyService,
             IRoomService roomService,
             IRoomTypeService roomTypeService,
             IRoomLocationService roomLocationService)
@@ -29,7 +25,6 @@ namespace Web.Controllers
             _roomService = roomService;
             _roomTypeService = roomTypeService;
             _roomLocationService = roomLocationService;
-
         }
 
         public IActionResult Index()
@@ -54,6 +49,7 @@ namespace Web.Controllers
                 //}
                 return View(rooms);
             }
+
             return View(_roomService.getAllRooms());
         }
     }

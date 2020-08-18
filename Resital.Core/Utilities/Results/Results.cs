@@ -2,6 +2,9 @@
 {
     public class Results : IResult
     {
+        public bool IsSuccess { get; }
+        public string Message { get; set; }
+
         #region Constructor
 
         public Results(bool success, string message) : this(success)
@@ -15,8 +18,5 @@
         }
 
         #endregion Constructor
-
-        public bool IsSuccess { get; }
-        public string Message { get; set; }
     }
 }

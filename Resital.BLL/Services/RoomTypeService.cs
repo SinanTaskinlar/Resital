@@ -1,23 +1,23 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
 using Resital.BLL.Abstract;
 using Resital.Core.Data.UnitOfWork;
 using Resital.DTO;
 using Resital.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Resital.BLL.Services
 {
     public class RoomTypeService : IRoomTypeService
     {
-        private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _uow;
 
         public RoomTypeService(IUnitOfWork uow, IMapper mapper)
         {
-            this._mapper = mapper;
-            this._uow = uow;
+            _mapper = mapper;
+            _uow = uow;
         }
 
         public List<RoomTypeDto> getAllRoomTypes()
@@ -28,7 +28,7 @@ namespace Resital.BLL.Services
 
         public RoomTypeDto getRoomType(Guid roomTypeId)
         {
-            RoomType type = _uow.GetRepository<RoomType>().GetById(z=> z.Id == roomTypeId);
+            var type = _uow.GetRepository<RoomType>().GetById(z => z.Id == roomTypeId);
             return _mapper.Map<RoomTypeDto>(type);
         }
 

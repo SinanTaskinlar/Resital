@@ -1,5 +1,5 @@
-﻿using Resital.DTO;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Resital.DTO;
 
 namespace Resital.WebUI.Models
 {

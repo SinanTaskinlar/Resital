@@ -1,6 +1,6 @@
-﻿using Resital.Core.Data.Repositories;
+﻿using System;
+using Resital.Core.Data.Repositories;
 using Resital.Core.Entities;
-using System;
 
 namespace Resital.Core.Data.UnitOfWork
 {

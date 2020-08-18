@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Resital.Core.Services;
 using Resital.DTO;
-using System.Collections.Generic;
 
 namespace Resital.BLL.Abstract
 {

@@ -1,9 +1,8 @@
 ﻿using System;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using BLL.Abstract;
-using BLL.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Web.Identity;
 using Web.Models;
 
@@ -11,11 +10,12 @@ namespace Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
         private readonly ICartService _cartService;
-        
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ICartService cartService)
+        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
+
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager,
+            ICartService cartService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -30,19 +30,13 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
             var a = await _userManager.FindByEmailAsync(model.Email);
 
             var res = await _signInManager.PasswordSignInAsync(a, model.Password, true, true);
 
-            if (res.Succeeded)
-            {
-                return Redirect("~/");
-            }
+            if (res.Succeeded) return Redirect("~/");
 
             return View();
         }
@@ -55,10 +49,7 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
             var a = new User
             {
@@ -102,6 +93,7 @@ namespace Web.Controllers
                 TempData["message"] = "Hesap Onaylandı";
                 return View();
             }
+
             return View();
         }
     }

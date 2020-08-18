@@ -1,6 +1,6 @@
-﻿using Resital.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Resital.Model;
 
 namespace Resital.DTO
 {
