@@ -30,6 +30,7 @@ namespace Resital.BLL.Services
         public CompanyDto getCompany(Guid companyId)
         {
             //var company = _uow.GetRepository<Company>().Get(z => z.Id == companyId, z => z.Rooms);
+            //YORUM SATIRI
             var company = _uow.GetRepository<Company>().GetById(z => z.Id == companyId, z => z.Rooms);
             return _mapper.Map<CompanyDto>(company);
         }
